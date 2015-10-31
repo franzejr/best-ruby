@@ -1,0 +1,5 @@
+#! /usr/bin/env ruby -w
+
+puts "This is one email"
+
+__END__

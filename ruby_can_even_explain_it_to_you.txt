@@ -1,0 +1,2 @@
+ruby -e 'puts { is_this_a_block }' --dump parsetree
+ruby -e 'puts { is_this_a_block }' --dump parsetree_with_comment
