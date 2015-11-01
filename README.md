@@ -3,8 +3,6 @@
 The most part of those Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM). 
 If you know some other ruby-trick, please contribute!
 
-## List of ruby tricks
-
 ### [Associative Arrays](associative_arrays.rb)
 
 ### [Autovivification](autovivification.rb)
@@ -25,15 +23,15 @@ If you know some other ruby-trick, please contribute!
 
 ### [Easiest Database Pstore using yams](easiest_datastore_pstore_yaml.rb)
 
-### [Enable ruby warnings]
+### [Enable ruby warnings](enable_ruby_warnings.rb)
 
-### [Fast memoization - fibonacci]
+### [Fast memoization - fibonacci](fast_memoization_fibonacci.rb)
 
-### Fetch data
+### [Fetch data](fetch_data.rb)
 
-### Get Random Data
+### [Get Random Data](get_random_data.rb)
 
-### Inject
+### [Inject](inject.rb)
 
 ### Inspecting the source with script lines
 
