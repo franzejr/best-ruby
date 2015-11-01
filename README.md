@@ -21,7 +21,7 @@ If you know some other ruby-trick, please contribute!
 
 ### [Easiest Database store](easiest_database_pstore.rb)
 
-### [Easiest Database Pstore using yams](easiest_database_pstore_yaml.rb)
+### [Easiest Database Pstore using YAML](easiest_database_pstore_yaml.rb)
 
 ### [Enable ruby warnings](enable_ruby_warnings.rb)
 
