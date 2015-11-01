@@ -33,45 +33,45 @@ If you know some other ruby-trick, please contribute!
 
 ### [Inject](inject.rb)
 
-### Inspecting the source with script lines
+### [Inspecting the source with script lines](inspecting_the_source_with_script_lines.rb)
 
-### Iterating over specific types
+### [Iterating over specific types](iterating_over_specific_types.rb)
 
-### Lambda your own syntax
+### [Lambda your own syntax](lambda_your_own_syntax.rb)
 
-### Print formatted with debug
+### [Print formatted with debug](print_formatted_with_debug.rb)
 
-### Ruby can explain it to you
+### [Ruby can even explain it to you](ruby_can_even_explain_it_to_you.txt)
 
-### Ruby debug flag
+### [Ruby debug flag](ruby_debug_flag.rb)
 
-### Shortcut variable interpolation
+### [Shortcut variable interpolation](shortcut_variable_interpolation.rb)
 
-#### Single instance running
+#### [Single instance running](single_instance_running.rb)
 
-### Struct without assignment 
+### [Struct without assignment](struct_without_assignment.rb)
 
-### Super Magic keyword 
+### [Super Magic keyword](super_magic_key_word.rb)
 
-### Super Magic keyword 2  
+### [Super Magic keyword 2](super_magic_key_word2.rb)
 
-### Super Magic keyword 3
+### [Super Magic keyword 3](super_magic_key_word3.rb)
 
-### Super Magic keyword 4
+### [Super Magic keyword 4](super_magic_key_word4.rb)
 
-### Super Magic keyword 5  
+### [Super Magic keyword 5](super_magic_key_word5.rb)
 
-### Tail Call
+### [Tail Call](tail_call.rb)
 
-### Trigger IRB as needed
+### [Trigger IRB as needed](trigger_irb_as_needed.rb)
 
-### Turn on garbage collector 
+### [Turn on garbage collector](turn_on_gargabe_collector.rb)
 
-### Unused variable format
+### [Unused variable format](unused_variable_format.rb)
 
-### Variables from a regex
+### [Variables from a regex](variables_from_a_regex.rb)
 
-### Zip
+### [Zip](zip.rb)
 
 
 ## Contributing
