@@ -47,7 +47,7 @@ If you know some other ruby-trick, please contribute!
 
 ### [Shortcut variable interpolation](shortcut_variable_interpolation.rb)
 
-#### [Single instance running](single_instance_running.rb)
+### [Single instance running](single_instance_running.rb)
 
 ### [Struct without assignment](struct_without_assignment.rb)
 
