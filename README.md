@@ -74,6 +74,14 @@ If you know some other ruby-trick, please contribute!
 ### [Zip](zip.rb)
 
 
+## Contributors
+
+- [@JEG2](https://github.com/JEG2)
+- [@franzejr](https://github.com/franzejr)
+- [@rafaelsales](https://github.com/rafaelsales)
+- [@jomagam](https://github.com/jomagam)
+- [@fredkelly](https://github.com/fredkelly)
+
 ## Contributing
 
 1. Fork it
