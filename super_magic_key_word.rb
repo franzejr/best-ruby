@@ -11,3 +11,6 @@ class Child < Parent
 end
 
 Child.new.show_args(:a, :b, :c)
+
+# Result:
+# [:a, :b, :c]

@@ -6,3 +6,6 @@ end
 
 franzejr = Struct::Name.new("Franze", "Jr")
 p franzejr.full
+
+# Result:
+# "Franze Jr"

@@ -12,3 +12,5 @@ eval <<end
 end
 
 p factorial(100000)
+
+# Result:

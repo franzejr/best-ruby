@@ -13,3 +13,6 @@ end
 
 #Nothing goes up, neither the block
 Child.new.show_args(:a, :b, :c) { :block }
+
+# Result:
+# [nil]

@@ -13,3 +13,7 @@ end
 
 p DelegateToMe.new.extend(DelegateIfCan).delegate
 p DontDelegateToMe.new.extend(DelegateIfCan).delegate
+
+# Result:
+# "Modified:  DelegateToMe"
+# "DelegateIfCan"

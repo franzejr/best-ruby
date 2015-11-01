@@ -7,3 +7,6 @@ end
 loop do
   sleep
 end
+
+# Result:
+# ./bubbling_up_thread_errors.rb:4:in `block in <main>': Ops, we cannot continue (RuntimeError)

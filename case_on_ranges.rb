@@ -9,3 +9,7 @@ case age
   when 65..Float::INFINITY
     p 'You are too old'
 end
+
+# Result:
+# 55
+# "You are at the right age"

@@ -5,3 +5,8 @@
   ].each do |name,_,_|
     p name
   end
+
+# Result:
+# "Someone"
+# "Someone2"
+# "Someone3"

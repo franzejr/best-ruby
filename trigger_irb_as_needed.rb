@@ -13,3 +13,7 @@ loop do
   p "Current value: #{my_program_context.value}"
   sleep 1
 end
+
+# Result:
+# "Current value: 40"
+# "Current value: 40"
