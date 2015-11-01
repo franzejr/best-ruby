@@ -6,3 +6,6 @@ end
 
 l = λ { p :called }
 l.call
+
+# Result:
+# :called

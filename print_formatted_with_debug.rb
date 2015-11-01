@@ -4,3 +4,5 @@ end
 
 debug "Num", 42
 
+# Result:
+# "Num:  42"

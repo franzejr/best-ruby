@@ -20,3 +20,10 @@ db.transaction(true) do
   p 'People %p' % db['people2']
   p 'Money %p' % db['money2']
 end
+
+# Result:
+# "People \"Someone\""
+# "Money 400"
+# "SECOND PERSON"
+# "People \"Someone2\""
+# "Money 300"

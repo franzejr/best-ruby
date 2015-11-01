@@ -4,3 +4,6 @@ fibonacci = Hash.new{ |numbers,index|
 
 
 p fibonacci[300]
+
+# Result:
+# 222232244629420445529739893461909967206666939096499764990979600
