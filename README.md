@@ -3,6 +3,79 @@
 The most part of those Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM). 
 If you know some other ruby-trick, please contribute!
 
+## List of ruby tricks
+
+### [Associative Arrays](associative_arrays.rb)
+
+### [Autovivification](autovivification.rb)
+
+### [Blocks can take blocks](blocks_can_take_blocks.rb)
+
+### [Bubbling up thread errors](bubbling_up_thread_errors.rb)
+
+### [Case on ranges](case_on_ranges.rb)
+
+### [Count all objects](count_all_objects.rb)
+
+### [Cycle](cycle.rb)
+
+### [DATA](data.rb)
+
+### [Easiest Database store](easiest_database_pstore.rb)
+
+### [Easiest Database Pstore using yams](easiest_datastore_pstore_yaml.rb)
+
+### [Enable ruby warnings]
+
+### [Fast memoization - fibonacci]
+
+### Fetch data
+
+### Get Random Data
+
+### Inject
+
+### Inspecting the source with script lines
+
+### Iterating over specific types
+
+### Lambda your own syntax
+
+### Print formatted with debug
+
+### Ruby can explain it to you
+
+### Ruby debug flag
+
+### Shortcut variable interpolation
+
+#### Single instance running
+
+### Struct without assignment 
+
+### Super Magic keyword 
+
+### Super Magic keyword 2  
+
+### Super Magic keyword 3
+
+### Super Magic keyword 4
+
+### Super Magic keyword 5  
+
+### Tail Call
+
+### Trigger IRB as needed
+
+### Turn on garbage collector 
+
+### Unused variable format
+
+### Variables from a regex
+
+### Zip
+
+
 ## Contributing
 
 1. Fork it
