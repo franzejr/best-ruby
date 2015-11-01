@@ -21,7 +21,7 @@ If you know some other ruby-trick, please contribute!
 
 ### [Easiest Database store](easiest_database_pstore.rb)
 
-### [Easiest Database Pstore using yams](easiest_datastore_pstore_yaml.rb)
+### [Easiest Database Pstore using yams](easiest_database_pstore_yaml.rb)
 
 ### [Enable ruby warnings](enable_ruby_warnings.rb)
 
@@ -65,7 +65,7 @@ If you know some other ruby-trick, please contribute!
 
 ### [Trigger IRB as needed](trigger_irb_as_needed.rb)
 
-### [Turn on garbage collector](turn_on_gargabe_collector.rb)
+### [Turn on garbage collector](turn_on_garbage_collector.rb)
 
 ### [Unused variable format](unused_variable_format.rb)
 
