@@ -1,6 +1,6 @@
 # ruby-tricks
 
-The most part of those Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM). 
+The most part of those Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM).
 If you know some other ruby-trick, please contribute!
 
 ### [Associative Arrays](associative_arrays.rb)
@@ -49,6 +49,8 @@ If you know some other ruby-trick, please contribute!
 
 ### [Shortcut variable interpolation](shortcut_variable_interpolation.rb)
 
+### [Simple Model](simple_model.rb)
+
 ### [Single instance running](single_instance_running.rb)
 
 ### [Stab Operator Lambdas](stab_operator.rb)
@@ -84,6 +86,7 @@ If you know some other ruby-trick, please contribute!
 - [@jomagam](https://github.com/jomagam)
 - [@fredkelly](https://github.com/fredkelly)
 - [@shadefinale](https://github.com/shadefinale)
+- [@jjuliano](https://github.com/jjuliano)
 
 ## Contributing
 
