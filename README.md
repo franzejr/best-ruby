@@ -83,6 +83,7 @@ If you know some other ruby-trick, please contribute!
 - [@rafaelsales](https://github.com/rafaelsales)
 - [@jomagam](https://github.com/jomagam)
 - [@fredkelly](https://github.com/fredkelly)
+- [@shadefinale](https://github.com/shadefinale)
 
 ## Contributing
 
