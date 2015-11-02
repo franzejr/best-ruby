@@ -23,6 +23,8 @@ If you know some other ruby-trick, please contribute!
 
 ### [Easiest Database Pstore using YAML](easiest_database_pstore_yaml.rb)
 
+### [Enable Garbage Collector Profiler](enable_garbage_collector_profiler.rb)
+
 ### [Enable ruby warnings](enable_ruby_warnings.rb)
 
 ### [Fast memoization - fibonacci](fast_memoization_fibonacci.rb)
@@ -66,8 +68,6 @@ If you know some other ruby-trick, please contribute!
 ### [Tail Call](tail_call.rb)
 
 ### [Trigger IRB as needed](trigger_irb_as_needed.rb)
-
-### [Turn on garbage collector](turn_on_garbage_collector.rb)
 
 ### [Unused variable format](unused_variable_format.rb)
 
