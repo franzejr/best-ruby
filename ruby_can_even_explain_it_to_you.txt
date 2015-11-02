@@ -1,2 +1,5 @@
 ruby -e 'puts { is_this_a_block }' --dump parsetree
 ruby -e 'puts { is_this_a_block }' --dump parsetree_with_comment
+ruby -e 'puts { is_this_a_block }' --dump yydebug
+ruby -e 'puts { is_this_a_block }' --dump syntax
+ruby -e 'puts { is_this_a_block }' --dump insns
