@@ -7,3 +7,10 @@ p aa.assoc("Bla")
 # Result:
 # ["Someone", "1"]
 # ["Bla", "2"]
+
+p aa.rassoc("1")
+p aa.rassoc("2")
+
+# Result:
+# ["Someone", "1"]
+# ["Bla", "2"]
