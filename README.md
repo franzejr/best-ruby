@@ -94,4 +94,4 @@ If you know some other ruby-trick, please contribute!
 2. Create your trick branch: `git checkout -b my-ruby-trick`
 3. Commit your changes: `git commit -am 'Add trick'`
 4. Push to the branch: `git push origin my-new-trick`
-5. Create new Pull Request and explain a little bit about your ruby trick
+5. Create new Pull Request and explain why your code is trick
