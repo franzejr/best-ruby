@@ -4,4 +4,4 @@ GC::Profiler.enable
   array = Array.new(1_000_000) { |i| i.to_s }
 end
 
-p GC::Profiler.result
+puts GC::Profiler.result
