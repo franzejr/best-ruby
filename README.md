@@ -84,6 +84,7 @@ If you know some other ruby-trick, please contribute!
 - [@jomagam](https://github.com/jomagam)
 - [@fredkelly](https://github.com/fredkelly)
 - [@shadefinale](https://github.com/shadefinale)
+- [@matugm](https://github.com/matugm)
 
 ## Contributing
 
