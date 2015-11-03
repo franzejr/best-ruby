@@ -92,6 +92,7 @@ If you know some other ruby-trick, please contribute!
 - [@lightyrs](https://github.com/lightyrs)
 - [@ilyakava](https://github.com/ilyakava)
 - [@dansandland](https://github.com/dansandland)
+- [@xzgyb](https://github.com/xzgyb)
 
 
 ## Contributing
