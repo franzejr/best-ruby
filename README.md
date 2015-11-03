@@ -55,6 +55,8 @@ If you know some other ruby-trick, please contribute!
 
 ### [Stab Operator Lambdas](stab_operator.rb)
 
+### [Splat Operator](splat_operator.rb)
+
 ### [Struct without assignment](struct_without_assignment.rb)
 
 ### [Super Magic keyword](super_magic_key_word.rb)
