@@ -88,6 +88,7 @@ If you know some other ruby-trick, please contribute!
 - [@shadefinale](https://github.com/shadefinale)
 - [@matugm](https://github.com/matugm)
 - [@lightyrs](https://github.com/lightyrs)
+- [@ilyakava](https://github.com/ilyakava)
 
 
 ## Contributing
