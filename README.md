@@ -33,6 +33,8 @@ If you know some other ruby-trick, please contribute!
 
 ### [Get Random Data](get_random_data.rb)
 
+### [Head & Tail](head_tail.rb)
+
 ### [Inject](inject.rb)
 
 ### [Inspecting the source with script lines](inspecting_the_source_with_script_lines.rb)
