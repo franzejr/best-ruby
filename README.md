@@ -1,6 +1,6 @@
 # ruby-tricks
 
-The most part of those Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM). 
+The most part of those Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM).
 If you know some other ruby-trick, please contribute!
 
 ### [Associative Arrays](associative_arrays.rb)
@@ -59,15 +59,15 @@ If you know some other ruby-trick, please contribute!
 
 ### [Struct without assignment](struct_without_assignment.rb)
 
-### [Super Magic keyword](super_magic_key_word.rb)
+### [Super Magic Method](super_magic_method.rb)
 
-### [Super Magic keyword 2](super_magic_key_word2.rb)
+### [Super Magic Method](super_magic_method2.rb)
 
-### [Super Magic keyword 3](super_magic_key_word3.rb)
+### [Super Magic Method](super_magic_method3.rb)
 
-### [Super Magic keyword 4](super_magic_key_word4.rb)
+### [Super Magic Method](super_magic_method4.rb)
 
-### [Super Magic keyword 5](super_magic_key_word5.rb)
+### [Super Magic Method](super_magic_method5.rb)
 
 ### [Tail Call](tail_call.rb)
 
