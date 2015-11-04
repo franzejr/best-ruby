@@ -1,0 +1,14 @@
+## Contributors
+
+- [@JEG2](https://github.com/JEG2)
+- [@franzejr](https://github.com/franzejr)
+- [@rafaelsales](https://github.com/rafaelsales)
+- [@jomagam](https://github.com/jomagam)
+- [@fredkelly](https://github.com/fredkelly)
+- [@shadefinale](https://github.com/shadefinale)
+- [@matugm](https://github.com/matugm)
+- [@lightyrs](https://github.com/lightyrs)
+- [@ilyakava](https://github.com/ilyakava)
+- [@dansandland](https://github.com/dansandland)
+- [@xzgyb](https://github.com/xzgyb)
+- [@filipebarcos](https://github.com/filipebarcos)
