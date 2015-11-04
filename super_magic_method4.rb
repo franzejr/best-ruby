@@ -6,7 +6,9 @@ end
 
 class Child < Parent
   def show_args(a,b,c)
-    #modify super by passing nothing
+    # modify super by passing nothing
+    # calling super with a nil proc,
+    # which is basically calling super()
     super(&nil)
   end
 end

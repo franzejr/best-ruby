@@ -6,7 +6,8 @@ end
 
 class Child < Parent
   def show_args(a,b,c)
-    #modify super by passing nothing
+    # Call super without any params
+    # making args an empty array []
     super()
   end
 end
