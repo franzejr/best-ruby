@@ -5,7 +5,7 @@ task :build do
 
   File.open("README.md", "w+") do |readme|
 
-    Dir.glob("*.rb").each do |file|
+    Dir.glob("*.rb").sort.each do |file|
       filename = File.basename file
       heading  = File.basename(file, ".rb").tr("_", " ").capitalize
       link     = heading.tr(" ", "-").downcase
@@ -57,10 +57,12 @@ If you know some other tricks, please contribute!
     readme.puts %{## Contributing
 
 1. Fork it
-2. Create your trick branch: `git checkout -b my-ruby-trick`
-3. Commit your changes: `git commit -am 'Add trick'`
-4. Push to the branch: `git push origin my-new-trick`
-5. Create new Pull Request and explain why your code is trick
+1. Create your trick branch: `git checkout -b my-ruby-trick`
+1. Add your trick to the collection of `.rb` files
+1. Regenerate `README.md`: `rake build` (install Rake with `bundle`)
+1. Commit your changes: `git commit -am 'Add trick'`
+1. Push to the branch: `git push origin my-new-trick`
+1. Create new Pull Request and explain why your code is trick
 }
   end
 end
