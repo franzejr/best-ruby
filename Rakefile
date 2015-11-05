@@ -57,10 +57,12 @@ If you know some other tricks, please contribute!
     readme.puts %{## Contributing
 
 1. Fork it
-2. Create your trick branch: `git checkout -b my-ruby-trick`
-3. Commit your changes: `git commit -am 'Add trick'`
-4. Push to the branch: `git push origin my-new-trick`
-5. Create new Pull Request and explain why your code is trick
+1. Create your trick branch: `git checkout -b my-ruby-trick`
+1. Add your trick
+1. Generate `README.md` by running `bundle` and then `rake build`
+1. Commit your changes: `git commit -am 'Add trick'`
+1. Push to the branch: `git push origin my-new-trick`
+1. Create new Pull Request and explain why your code is trick
 }
   end
 end
