@@ -5,46 +5,74 @@ If you know some other tricks, please contribute!
 
 ## Table of Contents
 
-- [Associative arrays](#associative-arrays)
-- [Autovivification](#autovivification)
-- [Blocks can take blocks](#blocks-can-take-blocks)
-- [Bubbling up thread errors](#bubbling-up-thread-errors)
-- [Case on ranges](#case-on-ranges)
-- [Count all objects](#count-all-objects)
-- [Cycle](#cycle)
-- [Data](#data)
-- [Easiest database pstore](#easiest-database-pstore)
-- [Easiest database pstore yaml](#easiest-database-pstore-yaml)
-- [Enable garbage collector profiler](#enable-garbage-collector-profiler)
-- [Enable ruby warnings](#enable-ruby-warnings)
-- [Fast memoization fibonacci](#fast-memoization-fibonacci)
-- [Fetch data](#fetch-data)
-- [Get random data](#get-random-data)
-- [Head tail](#head-tail)
-- [Inject](#inject)
-- [Inspecting the source with script lines](#inspecting-the-source-with-script-lines)
-- [Iterating over specific types](#iterating-over-specific-types)
-- [Lambda your own syntax](#lambda-your-own-syntax)
-- [Memoization](#memoization)
-- [Print formatted with debug](#print-formatted-with-debug)
-- [Ruby debug flag](#ruby-debug-flag)
-- [Shortcut variable interpolation](#shortcut-variable-interpolation)
-- [Single instance running](#single-instance-running)
-- [Splat operator](#splat-operator)
-- [Stab operator](#stab-operator)
-- [Struct without assignment](#struct-without-assignment)
-- [Super magic method](#super-magic-method)
-- [Super magic method2](#super-magic-method2)
-- [Super magic method3](#super-magic-method3)
 - [Super magic method4](#super-magic-method4)
+- [Associative arrays](#associative-arrays)
 - [Super magic method5](#super-magic-method5)
+- [Print formatted with debug](#print-formatted-with-debug)
 - [Tail call](#tail-call)
-- [Trigger irb as needed](#trigger-irb-as-needed)
-- [Unused variable format](#unused-variable-format)
-- [Variables from a regex](#variables-from-a-regex)
+- [Single instance running](#single-instance-running)
+- [Super magic method2](#super-magic-method2)
+- [Inject](#inject)
+- [Super magic method3](#super-magic-method3)
+- [Head tail](#head-tail)
+- [Enable ruby warnings](#enable-ruby-warnings)
+- [Bubbling up thread errors](#bubbling-up-thread-errors)
+- [Fetch data](#fetch-data)
 - [Zip](#zip)
+- [Variables from a regex](#variables-from-a-regex)
+- [Stab operator](#stab-operator)
+- [Fast memoization fibonacci](#fast-memoization-fibonacci)
+- [Unused variable format](#unused-variable-format)
+- [Trigger irb as needed](#trigger-irb-as-needed)
+- [Get random data](#get-random-data)
+- [Struct without assignment](#struct-without-assignment)
+- [Data](#data)
+- [Super magic method](#super-magic-method)
+- [Iterating over specific types](#iterating-over-specific-types)
+- [Easiest database pstore yaml](#easiest-database-pstore-yaml)
+- [Memoization](#memoization)
+- [Cycle](#cycle)
+- [Count all objects](#count-all-objects)
+- [Splat operator](#splat-operator)
+- [Enable garbage collector profiler](#enable-garbage-collector-profiler)
+- [Blocks can take blocks](#blocks-can-take-blocks)
+- [Autovivification](#autovivification)
+- [Easiest database pstore](#easiest-database-pstore)
+- [Ruby debug flag](#ruby-debug-flag)
+- [Case on ranges](#case-on-ranges)
+- [Lambda your own syntax](#lambda-your-own-syntax)
+- [Inspecting the source with script lines](#inspecting-the-source-with-script-lines)
+- [Shortcut variable interpolation](#shortcut-variable-interpolation)
 
 ## Tricks
+
+### Super magic method4
+
+```ruby
+class Parent
+  def show_args(*args, &block)
+    p [*args, block]
+  end
+end
+
+class Child < Parent
+  def show_args(a,b,c)
+    # modify super by passing nothing
+    # calling super with a nil proc,
+    # which is basically calling super()
+    super(&nil)
+  end
+end
+
+#Nothing goes up, neither the block
+Child.new.show_args(:a, :b, :c) { :block }
+
+# Result:
+# [nil]
+
+```
+
+[View Source](super_magic_method4.rb)
 
 ### Associative arrays
 
@@ -70,40 +98,203 @@ p aa.rassoc("2")
 
 [View Source](associative_arrays.rb)
 
-### Autovivification
+### Super magic method5
 
 ```ruby
-deep = Hash.new { |hash,key| hash[key] = Hash.new(&hash.default_proc) }
+class DontDelegateToMe; end
+class DelegateToMe; def delegate; "DelegateToMe" end end
 
-
-deep[:a][:b][:c][:d] = 42
-p deep
-
-# Result:
-# {:a=>{:b=>{:c=>{:d=>42}}}}
-
-```
-
-[View Source](autovivification.rb)
-
-### Blocks can take blocks
-
-```ruby
-var = :var
-object = Object.new
-
-object.define_singleton_method(:show_var_and_block) do |&block|
-  p [var, block]
+module DelegateIfCan
+  def delegate
+    if defined? super
+      "Modified:  #{super}"
+    else
+      "DelegateIfCan"
+    end
+  end
 end
 
-object.show_var_and_block { :block }
+p DelegateToMe.new.extend(DelegateIfCan).delegate
+p DontDelegateToMe.new.extend(DelegateIfCan).delegate
 
 # Result:
-# [:var, #<Proc:0x007ffd6c038128@./blocks_can_take_blocks.rb:8>]
+# "Modified:  DelegateToMe"
+# "DelegateIfCan"
 
 ```
 
-[View Source](blocks_can_take_blocks.rb)
+[View Source](super_magic_method5.rb)
+
+### Print formatted with debug
+
+```ruby
+def debug(name, content)
+  p "%s:  %p" % [name, content]
+end
+
+debug "Num", 42
+
+# Result:
+# "Num:  42"
+
+```
+
+[View Source](print_formatted_with_debug.rb)
+
+### Tail call
+
+```ruby
+RubyVM::InstructionSequence.compile_option = { tailcall_optimization: true,
+                                               trace_instruction: false }
+
+eval <<end
+  def factorial(n, result=1)
+    if n==1
+      result
+    else
+      factorial(n-1, n*result)
+    end
+  end
+end
+
+p factorial(100000)
+
+# Result:
+
+```
+
+[View Source](tail_call.rb)
+
+### Single instance running
+
+```ruby
+DATA.flock(File::LOCK_EX | File::LOCK_NB) or abort 'Already running'
+
+trap('INT', 'EXIT')
+puts 'Running...'
+loop do
+  sleep
+end
+
+__END__
+DO NOT DELETE: used for locking
+
+```
+
+[View Source](single_instance_running.rb)
+
+### Super magic method2
+
+```ruby
+class Parent
+  def show_args(*args, &block)
+    p [*args, block]
+  end
+end
+
+class Child < Parent
+  def show_args(a,b,c)
+    super
+  end
+end
+
+#Everything goes up, including the block
+Child.new.show_args(:a, :b, :c) { :block }
+
+# Result:
+# [:a, :b, :c, #<Proc:0x007f9bd288bfb0@./super_magic_key_word2.rb:14>]
+
+```
+
+[View Source](super_magic_method2.rb)
+
+### Inject
+
+```ruby
+p (1..10).inject{ |r,e| p [r,e]; r*2}
+
+
+# Result:
+# [1, 2]
+# [2, 3]
+# [4, 4]
+# [8, 5]
+# [16, 6]
+# [32, 7]
+# [64, 8]
+# [128, 9]
+# [256, 10]
+# 512
+
+```
+
+[View Source](inject.rb)
+
+### Super magic method3
+
+```ruby
+class Parent
+  def show_args(*args, &block)
+    p [*args, block]
+  end
+end
+
+class Child < Parent
+  def show_args(a,b,c)
+    # Call super without any params
+    # making args an empty array []
+    super()
+  end
+end
+
+#Nothing goes up
+Child.new.show_args(:a, :b, :c)
+
+# Result:
+# [nil]
+
+```
+
+[View Source](super_magic_method3.rb)
+
+### Head tail
+
+```ruby
+def my_reduce(array)
+    head, *tail = array
+    return (tail.empty? ? head : (head + my_reduce(tail)))
+end
+
+# triangular number example
+n = 100
+my_reduce((1..n).to_a) == (n*(n+1))/2 #=> True
+
+```
+
+[View Source](head_tail.rb)
+
+### Enable ruby warnings
+
+```ruby
+$VERBOSE = true
+
+class WarnMe
+  def var
+    @var || 42
+  end
+end
+
+
+p WarnMe.new.var
+
+
+# Result:
+# ./enable_ruby_warnings.rb:5: warning: instance variable @var not initialized
+# 42
+
+```
+
+[View Source](enable_ruby_warnings.rb)
 
 ### Bubbling up thread errors
 
@@ -125,73 +316,206 @@ end
 
 [View Source](bubbling_up_thread_errors.rb)
 
-### Case on ranges
+### Fetch data
 
 ```ruby
-age = rand(1..100)
-p age
+params = {var: 42}
 
-case age
-  when -Float::INFINITY..20
-    p 'You are too young'
-  when 21..64
-    p 'You are at the right age'
-  when 65..Float::INFINITY
-    p 'You are too old'
+p params.fetch(:var)
+p params.fetch(:missing, 42)
+p params.fetch(:missing) { 40 + 2 }
+
+params.fetch(:missing)
+
+
+# Result:
+# 42
+# 42
+# 42
+# ./fetch_data.rb:7:in `fetch': key not found: :missing (KeyError)
+# 	from ./fetch_data.rb:7:in `<main>'
+
+```
+
+[View Source](fetch_data.rb)
+
+### Zip
+
+```ruby
+letters = "a".."d"
+numbers = 1..3
+
+letters.zip(numbers) do |letter, number|
+  p(letter: letter, number: number)
 end
 
 # Result:
-# 55
-# "You are at the right age"
+# {:letter=>"a", :number=>1}
+# {:letter=>"b", :number=>2}
+# {:letter=>"c", :number=>3}
+# {:letter=>"d", :number=>nil}
 
 ```
 
-[View Source](case_on_ranges.rb)
+[View Source](zip.rb)
 
-### Count all objects
+### Variables from a regex
 
 ```ruby
-require 'pp'
-
-pp ObjectSpace.count_objects
+if  /\A(?<first>\w+),\s*(?<last>\w+)\z/ =~ "Franze, Jr"
+  puts "#{first} #{last}"
+end
 
 # Result:
-# {:TOTAL=>30163,
-#  :FREE=>1007,
-#  :T_OBJECT=>39,
-#  :T_CLASS=>534,
-#  :T_MODULE=>24,
-#  :T_FLOAT=>4,
-#  :T_STRING=>9290,
-#  :T_REGEXP=>70,
-#  :T_ARRAY=>2231,
-#  :T_HASH=>53,
-#  :T_STRUCT=>1,
-#  :T_BIGNUM=>2,
-#  :T_FILE=>14,
-#  :T_DATA=>966,
-#  :T_MATCH=>1,
-#  :T_COMPLEX=>1,
-#  :T_NODE=>15896,
-#  :T_ICLASS=>30}
+# Franze Jr
 
 ```
 
-[View Source](count_all_objects.rb)
+[View Source](variables_from_a_regex.rb)
 
-### Cycle
+### Stab operator
 
 ```ruby
-ring = %w[one two three].cycle
+# Stab Operator - Lambdas in Ruby 1.9 or later.
+# Y Combinator
+# Ruby supports a syntax for lambdas known as the 'stab' operator.
+# Rather than something like lambda { a < 5 },
+# you can type -> { a < 5 }.
+#
+# Below is a version of the fibonacci sequence that can
+# perform recursive calls without named functions.
+#
+# Improver function for fibonacci sequence
+# Assumes that the 0th element of the sequence is 0,
+# and the 1st element of the sequence is 1.
+fib_improver = ->(partial) {
+  ->(n) { n < 2 ? n : partial.(n-1) + partial.(n-2) }
+}
 
-p ring.take(5)
+# The y combinator
+y = ->(f) {
+  ->(x) { x.(x) }.(
+    ->(x) { f.(->(v) { x.(x).(v)}) }
+  )
+}
 
-# Result:
-# ["one", "two", "three", "one", "two"]
+# Using the stab operator and y combinator, we can
+# write a fibonacci function with anonymous functions
+# This solution is not memoized and so will be very slow.
+fib = fib_improver.(y.(fib_improver))
+
+p fib.(1)
+
+p fib.(10)
+# Notice that after loading, fib isn't defined anymore.
 
 ```
 
-[View Source](cycle.rb)
+[View Source](stab_operator.rb)
+
+### Fast memoization fibonacci
+
+```ruby
+fibonacci = Hash.new{ |numbers,index|
+  numbers[index] = fibonacci[index - 2] + fibonacci[index - 1]
+}.update(0 => 0, 1 => 1)
+
+
+p fibonacci[300]
+
+# Result:
+# 222232244629420445529739893461909967206666939096499764990979600
+
+```
+
+[View Source](fast_memoization_fibonacci.rb)
+
+### Unused variable format
+
+```ruby
+  [
+    ['Someone', 41, 'another field'],
+    ['Someone2', 42, 'another field2'],
+    ['Someone3', 43, 'another field3']
+  ].each do |name,_,_|
+    p name
+  end
+
+# Result:
+# "Someone"
+# "Someone2"
+# "Someone3"
+
+```
+
+[View Source](unused_variable_format.rb)
+
+### Trigger irb as needed
+
+```ruby
+require 'irb'
+
+def my_program_context
+  @my_program_context ||= Struct.new(:value).new(40)
+end
+
+trap(:INT) do
+  IRB.start
+  trap(:INT, 'EXIT')
+end
+
+loop do
+  p "Current value: #{my_program_context.value}"
+  sleep 1
+end
+
+# Result:
+# "Current value: 40"
+# "Current value: 40"
+
+```
+
+[View Source](trigger_irb_as_needed.rb)
+
+### Get random data
+
+```ruby
+require 'securerandom'
+
+p SecureRandom.random_number
+p SecureRandom.random_number(100)
+p
+p SecureRandom.hex(20)
+p SecureRandom.base64(20)
+
+# Result:
+# 0.7851536586163714
+# 46
+# "3efb674fbc2ba390856c15489652e75e8afff6d1"
+# "yFv0WzugzFC6/D71teVe1Y5r1kU="
+
+```
+
+[View Source](get_random_data.rb)
+
+### Struct without assignment
+
+```ruby
+Struct.new("Name", :first, :last) do
+  def full
+    "#{first} #{last}"
+  end
+end
+
+franzejr = Struct::Name.new("Franze", "Jr")
+p franzejr.full
+
+# Result:
+# "Franze Jr"
+
+```
+
+[View Source](struct_without_assignment.rb)
 
 ### Data
 
@@ -206,42 +530,48 @@ Hey oh!
 
 [View Source](data.rb)
 
-### Easiest database pstore
+### Super magic method
 
 ```ruby
-require 'pstore'
-
-db = PStore.new('mydatabase.pstore')
-
-db.transaction do
-  db['people1'] = 'Someone'
-  db['money1'] = 400
+class Parent
+  def show_args(*args)
+    p args
+  end
 end
 
-db.transaction do
-  db['people2'] = 'Someone2'
-  db['money2'] = 300
+class Child < Parent
+  def show_args(a,b,c)
+    super(a,b,c)
+  end
 end
 
-
-db.transaction(true) do
-  p 'People %p' % db['people1']
-  p 'Money %p' % db['money1']
-  p "SECOND PERSON"
-  p 'People %p' % db['people2']
-  p 'Money %p' % db['money2']
-end
+Child.new.show_args(:a, :b, :c)
 
 # Result:
-# "People \"Someone\""
-# "Money 400"
-# "SECOND PERSON"
-# "People \"Someone2\""
-# "Money 300"
+# [:a, :b, :c]
 
 ```
 
-[View Source](easiest_database_pstore.rb)
+[View Source](super_magic_method.rb)
+
+### Iterating over specific types
+
+```ruby
+ObjectSpace.each_object(String) do |object|
+  p object
+end
+
+# Result:
+# "block in dependent_specs"
+# "block in dependent_specs"
+# "block (3 levels) in dependent_gems"
+# "block (3 levels) in dependent_gems"
+# ... (huge output suppressed)
+# "This rdoc is bundled with Ruby"
+
+```
+
+[View Source](iterating_over_specific_types.rb)
 
 ### Easiest database pstore yaml
 
@@ -279,197 +609,6 @@ end
 ```
 
 [View Source](easiest_database_pstore_yaml.rb)
-
-### Enable garbage collector profiler
-
-```ruby
-GC::Profiler.enable
-
-10.times do
-  array = Array.new(1_000_000) { |i| i.to_s }
-end
-
-puts GC::Profiler.result
-
-```
-
-[View Source](enable_garbage_collector_profiler.rb)
-
-### Enable ruby warnings
-
-```ruby
-$VERBOSE = true
-
-class WarnMe
-  def var
-    @var || 42
-  end
-end
-
-
-p WarnMe.new.var
-
-
-# Result:
-# ./enable_ruby_warnings.rb:5: warning: instance variable @var not initialized
-# 42
-
-```
-
-[View Source](enable_ruby_warnings.rb)
-
-### Fast memoization fibonacci
-
-```ruby
-fibonacci = Hash.new{ |numbers,index|
-  numbers[index] = fibonacci[index - 2] + fibonacci[index - 1]
-}.update(0 => 0, 1 => 1)
-
-
-p fibonacci[300]
-
-# Result:
-# 222232244629420445529739893461909967206666939096499764990979600
-
-```
-
-[View Source](fast_memoization_fibonacci.rb)
-
-### Fetch data
-
-```ruby
-params = {var: 42}
-
-p params.fetch(:var)
-p params.fetch(:missing, 42)
-p params.fetch(:missing) { 40 + 2 }
-
-params.fetch(:missing)
-
-
-# Result:
-# 42
-# 42
-# 42
-# ./fetch_data.rb:7:in `fetch': key not found: :missing (KeyError)
-# 	from ./fetch_data.rb:7:in `<main>'
-
-```
-
-[View Source](fetch_data.rb)
-
-### Get random data
-
-```ruby
-require 'securerandom'
-
-p SecureRandom.random_number
-p SecureRandom.random_number(100)
-p
-p SecureRandom.hex(20)
-p SecureRandom.base64(20)
-
-# Result:
-# 0.7851536586163714
-# 46
-# "3efb674fbc2ba390856c15489652e75e8afff6d1"
-# "yFv0WzugzFC6/D71teVe1Y5r1kU="
-
-```
-
-[View Source](get_random_data.rb)
-
-### Head tail
-
-```ruby
-def my_reduce(array)
-    head, *tail = array
-    return (tail.empty? ? head : (head + my_reduce(tail)))
-end
-
-# triangular number example
-n = 100
-my_reduce((1..n).to_a) == (n*(n+1))/2 #=> True
-
-```
-
-[View Source](head_tail.rb)
-
-### Inject
-
-```ruby
-p (1..10).inject{ |r,e| p [r,e]; r*2}
-
-
-# Result:
-# [1, 2]
-# [2, 3]
-# [4, 4]
-# [8, 5]
-# [16, 6]
-# [32, 7]
-# [64, 8]
-# [128, 9]
-# [256, 10]
-# 512
-
-```
-
-[View Source](inject.rb)
-
-### Inspecting the source with script lines
-
-```ruby
-SCRIPT_LINES__ = { }
-
-#require_relative = 'better_be_well_formed_code'
-require_relative = 'better_be_well_formed_code_with_a_line_size_greather_than_80_it_is_not_good'
-
-if SCRIPT_LINES__.values.flatten.any? { |line| line.size > 80}
-  abort 'Clean up your code first!'
-end
-
-```
-
-[View Source](inspecting_the_source_with_script_lines.rb)
-
-### Iterating over specific types
-
-```ruby
-ObjectSpace.each_object(String) do |object|
-  p object
-end
-
-# Result:
-# "block in dependent_specs"
-# "block in dependent_specs"
-# "block (3 levels) in dependent_gems"
-# "block (3 levels) in dependent_gems"
-# ... (huge output suppressed)
-# "This rdoc is bundled with Ruby"
-
-```
-
-[View Source](iterating_over_specific_types.rb)
-
-### Lambda your own syntax
-
-```ruby
-# encoding UTF-8
-
-module Kernel
-  alias_method :λ, :lambda
-end
-
-l = λ { p :called }
-l.call
-
-# Result:
-# :called
-
-```
-
-[View Source](lambda_your_own_syntax.rb)
 
 ### Memoization
 
@@ -524,78 +663,50 @@ end
 
 [View Source](memoization.rb)
 
-### Print formatted with debug
+### Cycle
 
 ```ruby
-def debug(name, content)
-  p "%s:  %p" % [name, content]
-end
+ring = %w[one two three].cycle
 
-debug "Num", 42
+p ring.take(5)
 
 # Result:
-# "Num:  42"
+# ["one", "two", "three", "one", "two"]
 
 ```
 
-[View Source](print_formatted_with_debug.rb)
+[View Source](cycle.rb)
 
-### Ruby debug flag
+### Count all objects
 
 ```ruby
-def var
-  @var || 40
-end
+require 'pp'
 
-if $DEBUG
-  p "var is %p" % var
-end
-
-p var + 2
+pp ObjectSpace.count_objects
 
 # Result:
-# ruby_debug_flag.rb:2: warning: instance variable @var not initialized
-# "var is 40"
-# ruby_debug_flag.rb:2: warning: instance variable @var not initialized
-# 42
+# {:TOTAL=>30163,
+#  :FREE=>1007,
+#  :T_OBJECT=>39,
+#  :T_CLASS=>534,
+#  :T_MODULE=>24,
+#  :T_FLOAT=>4,
+#  :T_STRING=>9290,
+#  :T_REGEXP=>70,
+#  :T_ARRAY=>2231,
+#  :T_HASH=>53,
+#  :T_STRUCT=>1,
+#  :T_BIGNUM=>2,
+#  :T_FILE=>14,
+#  :T_DATA=>966,
+#  :T_MATCH=>1,
+#  :T_COMPLEX=>1,
+#  :T_NODE=>15896,
+#  :T_ICLASS=>30}
 
 ```
 
-[View Source](ruby_debug_flag.rb)
-
-### Shortcut variable interpolation
-
-```ruby
-@instance = :instance
-@@class = :class
-$global = :global
-
-p "#@instance, #@@class, and #$global variables don't need braces"
-
-# Result:
-# "instance, class, and global variables don't need braces"
-
-```
-
-[View Source](shortcut_variable_interpolation.rb)
-
-### Single instance running
-
-```ruby
-DATA.flock(File::LOCK_EX | File::LOCK_NB) or abort 'Already running'
-
-trap('INT', 'EXIT')
-puts 'Running...'
-loop do
-  sleep
-end
-
-__END__
-DO NOT DELETE: used for locking
-
-```
-
-[View Source](single_instance_running.rb)
+[View Source](count_all_objects.rb)
 
 ### Splat operator
 
@@ -645,300 +756,189 @@ my_method(first:1, second:2, three:3)
 
 [View Source](splat_operator.rb)
 
-### Stab operator
+### Enable garbage collector profiler
 
 ```ruby
-# Stab Operator - Lambdas in Ruby 1.9 or later.
-# Y Combinator
-# Ruby supports a syntax for lambdas known as the 'stab' operator.
-# Rather than something like lambda { a < 5 },
-# you can type -> { a < 5 }.
-#
-# Below is a version of the fibonacci sequence that can
-# perform recursive calls without named functions.
-#
-# Improver function for fibonacci sequence
-# Assumes that the 0th element of the sequence is 0,
-# and the 1st element of the sequence is 1.
-fib_improver = ->(partial) {
-  ->(n) { n < 2 ? n : partial.(n-1) + partial.(n-2) }
-}
+GC::Profiler.enable
 
-# The y combinator
-y = ->(f) {
-  ->(x) { x.(x) }.(
-    ->(x) { f.(->(v) { x.(x).(v)}) }
-  )
-}
+10.times do
+  array = Array.new(1_000_000) { |i| i.to_s }
+end
 
-# Using the stab operator and y combinator, we can
-# write a fibonacci function with anonymous functions
-# This solution is not memoized and so will be very slow.
-fib = fib_improver.(y.(fib_improver))
-
-p fib.(1)
-
-p fib.(10)
-# Notice that after loading, fib isn't defined anymore.
+puts GC::Profiler.result
 
 ```
 
-[View Source](stab_operator.rb)
+[View Source](enable_garbage_collector_profiler.rb)
 
-### Struct without assignment
+### Blocks can take blocks
 
 ```ruby
-Struct.new("Name", :first, :last) do
-  def full
-    "#{first} #{last}"
-  end
+var = :var
+object = Object.new
+
+object.define_singleton_method(:show_var_and_block) do |&block|
+  p [var, block]
 end
 
-franzejr = Struct::Name.new("Franze", "Jr")
-p franzejr.full
+object.show_var_and_block { :block }
 
 # Result:
-# "Franze Jr"
+# [:var, #<Proc:0x007ffd6c038128@./blocks_can_take_blocks.rb:8>]
 
 ```
 
-[View Source](struct_without_assignment.rb)
+[View Source](blocks_can_take_blocks.rb)
 
-### Super magic method
+### Autovivification
 
 ```ruby
-class Parent
-  def show_args(*args)
-    p args
-  end
-end
+deep = Hash.new { |hash,key| hash[key] = Hash.new(&hash.default_proc) }
 
-class Child < Parent
-  def show_args(a,b,c)
-    super(a,b,c)
-  end
-end
 
-Child.new.show_args(:a, :b, :c)
+deep[:a][:b][:c][:d] = 42
+p deep
 
 # Result:
-# [:a, :b, :c]
+# {:a=>{:b=>{:c=>{:d=>42}}}}
 
 ```
 
-[View Source](super_magic_method.rb)
+[View Source](autovivification.rb)
 
-### Super magic method2
-
-```ruby
-class Parent
-  def show_args(*args, &block)
-    p [*args, block]
-  end
-end
-
-class Child < Parent
-  def show_args(a,b,c)
-    super
-  end
-end
-
-#Everything goes up, including the block
-Child.new.show_args(:a, :b, :c) { :block }
-
-# Result:
-# [:a, :b, :c, #<Proc:0x007f9bd288bfb0@./super_magic_key_word2.rb:14>]
-
-```
-
-[View Source](super_magic_method2.rb)
-
-### Super magic method3
+### Easiest database pstore
 
 ```ruby
-class Parent
-  def show_args(*args, &block)
-    p [*args, block]
-  end
+require 'pstore'
+
+db = PStore.new('mydatabase.pstore')
+
+db.transaction do
+  db['people1'] = 'Someone'
+  db['money1'] = 400
 end
 
-class Child < Parent
-  def show_args(a,b,c)
-    # Call super without any params
-    # making args an empty array []
-    super()
-  end
+db.transaction do
+  db['people2'] = 'Someone2'
+  db['money2'] = 300
 end
 
-#Nothing goes up
-Child.new.show_args(:a, :b, :c)
 
-# Result:
-# [nil]
-
-```
-
-[View Source](super_magic_method3.rb)
-
-### Super magic method4
-
-```ruby
-class Parent
-  def show_args(*args, &block)
-    p [*args, block]
-  end
-end
-
-class Child < Parent
-  def show_args(a,b,c)
-    # modify super by passing nothing
-    # calling super with a nil proc,
-    # which is basically calling super()
-    super(&nil)
-  end
-end
-
-#Nothing goes up, neither the block
-Child.new.show_args(:a, :b, :c) { :block }
-
-# Result:
-# [nil]
-
-```
-
-[View Source](super_magic_method4.rb)
-
-### Super magic method5
-
-```ruby
-class DontDelegateToMe; end
-class DelegateToMe; def delegate; "DelegateToMe" end end
-
-module DelegateIfCan
-  def delegate
-    if defined? super
-      "Modified:  #{super}"
-    else
-      "DelegateIfCan"
-    end
-  end
-end
-
-p DelegateToMe.new.extend(DelegateIfCan).delegate
-p DontDelegateToMe.new.extend(DelegateIfCan).delegate
-
-# Result:
-# "Modified:  DelegateToMe"
-# "DelegateIfCan"
-
-```
-
-[View Source](super_magic_method5.rb)
-
-### Tail call
-
-```ruby
-RubyVM::InstructionSequence.compile_option = { tailcall_optimization: true,
-                                               trace_instruction: false }
-
-eval <<end
-  def factorial(n, result=1)
-    if n==1
-      result
-    else
-      factorial(n-1, n*result)
-    end
-  end
-end
-
-p factorial(100000)
-
-# Result:
-
-```
-
-[View Source](tail_call.rb)
-
-### Trigger irb as needed
-
-```ruby
-require 'irb'
-
-def my_program_context
-  @my_program_context ||= Struct.new(:value).new(40)
-end
-
-trap(:INT) do
-  IRB.start
-  trap(:INT, 'EXIT')
-end
-
-loop do
-  p "Current value: #{my_program_context.value}"
-  sleep 1
+db.transaction(true) do
+  p 'People %p' % db['people1']
+  p 'Money %p' % db['money1']
+  p "SECOND PERSON"
+  p 'People %p' % db['people2']
+  p 'Money %p' % db['money2']
 end
 
 # Result:
-# "Current value: 40"
-# "Current value: 40"
+# "People \"Someone\""
+# "Money 400"
+# "SECOND PERSON"
+# "People \"Someone2\""
+# "Money 300"
 
 ```
 
-[View Source](trigger_irb_as_needed.rb)
+[View Source](easiest_database_pstore.rb)
 
-### Unused variable format
+### Ruby debug flag
 
 ```ruby
-  [
-    ['Someone', 41, 'another field'],
-    ['Someone2', 42, 'another field2'],
-    ['Someone3', 43, 'another field3']
-  ].each do |name,_,_|
-    p name
-  end
+def var
+  @var || 40
+end
+
+if $DEBUG
+  p "var is %p" % var
+end
+
+p var + 2
 
 # Result:
-# "Someone"
-# "Someone2"
-# "Someone3"
+# ruby_debug_flag.rb:2: warning: instance variable @var not initialized
+# "var is 40"
+# ruby_debug_flag.rb:2: warning: instance variable @var not initialized
+# 42
 
 ```
 
-[View Source](unused_variable_format.rb)
+[View Source](ruby_debug_flag.rb)
 
-### Variables from a regex
+### Case on ranges
 
 ```ruby
-if  /\A(?<first>\w+),\s*(?<last>\w+)\z/ =~ "Franze, Jr"
-  puts "#{first} #{last}"
+age = rand(1..100)
+p age
+
+case age
+  when -Float::INFINITY..20
+    p 'You are too young'
+  when 21..64
+    p 'You are at the right age'
+  when 65..Float::INFINITY
+    p 'You are too old'
 end
 
 # Result:
-# Franze Jr
+# 55
+# "You are at the right age"
 
 ```
 
-[View Source](variables_from_a_regex.rb)
+[View Source](case_on_ranges.rb)
 
-### Zip
+### Lambda your own syntax
 
 ```ruby
-letters = "a".."d"
-numbers = 1..3
+# encoding UTF-8
 
-letters.zip(numbers) do |letter, number|
-  p(letter: letter, number: number)
+module Kernel
+  alias_method :λ, :lambda
 end
 
+l = λ { p :called }
+l.call
+
 # Result:
-# {:letter=>"a", :number=>1}
-# {:letter=>"b", :number=>2}
-# {:letter=>"c", :number=>3}
-# {:letter=>"d", :number=>nil}
+# :called
 
 ```
 
-[View Source](zip.rb)
+[View Source](lambda_your_own_syntax.rb)
+
+### Inspecting the source with script lines
+
+```ruby
+SCRIPT_LINES__ = { }
+
+#require_relative = 'better_be_well_formed_code'
+require_relative = 'better_be_well_formed_code_with_a_line_size_greather_than_80_it_is_not_good'
+
+if SCRIPT_LINES__.values.flatten.any? { |line| line.size > 80}
+  abort 'Clean up your code first!'
+end
+
+```
+
+[View Source](inspecting_the_source_with_script_lines.rb)
+
+### Shortcut variable interpolation
+
+```ruby
+@instance = :instance
+@@class = :class
+$global = :global
+
+p "#@instance, #@@class, and #$global variables don't need braces"
+
+# Result:
+# "instance, class, and global variables don't need braces"
+
+```
+
+[View Source](shortcut_variable_interpolation.rb)
 
 ## Contributors
 
@@ -954,6 +954,7 @@ end
 - [@dansandland](https://github.com/dansandland)
 - [@xzgyb](https://github.com/xzgyb)
 - [@filipebarcos](https://github.com/filipebarcos)
+- [@ezekg](https://github.com/ezekg)
 
 ## Contributing
 
