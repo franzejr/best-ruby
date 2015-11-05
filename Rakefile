@@ -5,7 +5,7 @@ task :build do
 
   File.open("README.md", "w+") do |readme|
 
-    Dir.glob("*.rb").each do |file|
+    Dir.glob("*.rb").sort.each do |file|
       filename = File.basename file
       heading  = File.basename(file, ".rb").tr("_", " ").capitalize
       link     = heading.tr(" ", "-").downcase
