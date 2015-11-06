@@ -1,4 +1,4 @@
-# Splat Operator (*) 
+# Splat Operator (*)
 
 # When calling methods
 

@@ -4,7 +4,7 @@
 
 The majority of these Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM).
 If you know some other tricks, please contribute!
-    
+
 ## Table of Contents
 
 - [Associative arrays](#associative-arrays)
@@ -73,7 +73,7 @@ p aa.rassoc("2")
 
         [View Source](associative_arrays.rb)
 
-      
+
 ### Autovivification
 
         ```ruby
@@ -90,7 +90,7 @@ p deep
 
         [View Source](autovivification.rb)
 
-      
+
 ### Blocks can take blocks
 
         ```ruby
@@ -110,7 +110,7 @@ object.show_var_and_block { :block }
 
         [View Source](blocks_can_take_blocks.rb)
 
-      
+
 ### Bubbling up thread errors
 
         ```ruby
@@ -131,7 +131,7 @@ end
 
         [View Source](bubbling_up_thread_errors.rb)
 
-      
+
 ### Case on ranges
 
         ```ruby
@@ -155,7 +155,7 @@ end
 
         [View Source](case_on_ranges.rb)
 
-      
+
 ### Count all objects
 
         ```ruby
@@ -187,7 +187,7 @@ pp ObjectSpace.count_objects
 
         [View Source](count_all_objects.rb)
 
-      
+
 ### Cycle
 
         ```ruby
@@ -202,7 +202,7 @@ p ring.take(5)
 
         [View Source](cycle.rb)
 
-      
+
 ### Data
 
         ```ruby
@@ -216,7 +216,7 @@ Hey oh!
 
         [View Source](data.rb)
 
-      
+
 ### Easiest database pstore
 
         ```ruby
@@ -254,7 +254,7 @@ end
 
         [View Source](easiest_database_pstore.rb)
 
-      
+
 ### Easiest database pstore yaml
 
         ```ruby
@@ -292,7 +292,7 @@ end
 
         [View Source](easiest_database_pstore_yaml.rb)
 
-      
+
 ### Enable garbage collector profiler
 
         ```ruby
@@ -308,7 +308,7 @@ puts GC::Profiler.result
 
         [View Source](enable_garbage_collector_profiler.rb)
 
-      
+
 ### Enable ruby warnings
 
         ```ruby
@@ -332,7 +332,7 @@ p WarnMe.new.var
 
         [View Source](enable_ruby_warnings.rb)
 
-      
+
 ### Fast memoization fibonacci
 
         ```ruby
@@ -350,7 +350,7 @@ p fibonacci[300]
 
         [View Source](fast_memoization_fibonacci.rb)
 
-      
+
 ### Fetch data
 
         ```ruby
@@ -374,7 +374,7 @@ params.fetch(:missing)
 
         [View Source](fetch_data.rb)
 
-      
+
 ### Get random data
 
         ```ruby
@@ -396,7 +396,7 @@ p SecureRandom.base64(20)
 
         [View Source](get_random_data.rb)
 
-      
+
 ### Head tail
 
         ```ruby
@@ -413,7 +413,7 @@ my_reduce((1..n).to_a) == (n*(n+1))/2 #=> True
 
         [View Source](head_tail.rb)
 
-      
+
 ### Inject
 
         ```ruby
@@ -436,7 +436,7 @@ my_reduce((1..n).to_a) == (n*(n+1))/2 #=> True
 
         [View Source](inject.rb)
 
-      
+
 ### Inspecting the source with script lines
 
         ```ruby
@@ -453,7 +453,7 @@ end
 
         [View Source](inspecting_the_source_with_script_lines.rb)
 
-      
+
 ### Iterating over specific types
 
         ```ruby
@@ -473,7 +473,7 @@ end
 
         [View Source](iterating_over_specific_types.rb)
 
-      
+
 ### Lambda your own syntax
 
         ```ruby
@@ -493,7 +493,7 @@ l.call
 
         [View Source](lambda_your_own_syntax.rb)
 
-      
+
 ### Memoization
 
         ```ruby
@@ -547,7 +547,7 @@ end
 
         [View Source](memoization.rb)
 
-      
+
 ### Print formatted with debug
 
         ```ruby
@@ -564,7 +564,7 @@ debug "Num", 42
 
         [View Source](print_formatted_with_debug.rb)
 
-      
+
 ### Ruby debug flag
 
         ```ruby
@@ -588,7 +588,7 @@ p var + 2
 
         [View Source](ruby_debug_flag.rb)
 
-      
+
 ### Shortcut variable interpolation
 
         ```ruby
@@ -605,7 +605,7 @@ p "#@instance, #@@class, and #$global variables don't need braces"
 
         [View Source](shortcut_variable_interpolation.rb)
 
-      
+
 ### Single instance running
 
         ```ruby
@@ -624,7 +624,7 @@ DO NOT DELETE: used for locking
 
         [View Source](single_instance_running.rb)
 
-      
+
 ### Smalltalk conditionals
 
         ```ruby
@@ -642,11 +642,11 @@ puts (4 == 2).--> { :ok } { :different }
 
         [View Source](smalltalk_conditionals.rb)
 
-      
+
 ### Splat operator
 
         ```ruby
-      # Splat Operator (*) 
+      # Splat Operator (*)
 
 # When calling methods
 
@@ -691,7 +691,7 @@ my_method(first:1, second:2, three:3)
 
         [View Source](splat_operator.rb)
 
-      
+
 ### Stab operator
 
         ```ruby
@@ -732,7 +732,7 @@ p fib.(10)
 
         [View Source](stab_operator.rb)
 
-      
+
 ### Struct without assignment
 
         ```ruby
@@ -752,7 +752,7 @@ p franzejr.full
 
         [View Source](struct_without_assignment.rb)
 
-      
+
 ### Super magic method
 
         ```ruby
@@ -777,7 +777,7 @@ Child.new.show_args(:a, :b, :c)
 
         [View Source](super_magic_method.rb)
 
-      
+
 ### Super magic method2
 
         ```ruby
@@ -803,7 +803,7 @@ Child.new.show_args(:a, :b, :c) { :block }
 
         [View Source](super_magic_method2.rb)
 
-      
+
 ### Super magic method3
 
         ```ruby
@@ -831,7 +831,7 @@ Child.new.show_args(:a, :b, :c)
 
         [View Source](super_magic_method3.rb)
 
-      
+
 ### Super magic method4
 
         ```ruby
@@ -860,7 +860,7 @@ Child.new.show_args(:a, :b, :c) { :block }
 
         [View Source](super_magic_method4.rb)
 
-      
+
 ### Super magic method5
 
         ```ruby
@@ -888,7 +888,7 @@ p DontDelegateToMe.new.extend(DelegateIfCan).delegate
 
         [View Source](super_magic_method5.rb)
 
-      
+
 ### Tail call
 
         ```ruby
@@ -913,7 +913,7 @@ p factorial(100000)
 
         [View Source](tail_call.rb)
 
-      
+
 ### Trigger irb as needed
 
         ```ruby
@@ -941,7 +941,7 @@ end
 
         [View Source](trigger_irb_as_needed.rb)
 
-      
+
 ### Unused variable format
 
         ```ruby
@@ -962,7 +962,7 @@ end
 
         [View Source](unused_variable_format.rb)
 
-      
+
 ### Variables from a regex
 
         ```ruby
@@ -977,7 +977,7 @@ end
 
         [View Source](variables_from_a_regex.rb)
 
-      
+
 ### Zip
 
         ```ruby
@@ -998,7 +998,7 @@ end
 
         [View Source](zip.rb)
 
-      
+
 ## Contributors
 
 - [@JEG2](https://github.com/JEG2)
