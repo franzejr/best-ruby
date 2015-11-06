@@ -14,4 +14,4 @@ end
 Child.new.show_args(:a, :b, :c) { :block }
 
 # Result:
-# [:a, :b, :c, #<Proc:0x007f9bd288bfb0@./super_magic_key_word2.rb:14>]
+# [:a, :b, :c, #<Proc:0x007f911c1281a8@super_magic_keyword2.rb:14>]
