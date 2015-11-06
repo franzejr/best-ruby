@@ -17,22 +17,23 @@ task :build do
       # Add trick file contents to array of tricks
       tricks << %{### #{heading}
 
-```ruby
-#{content}
-```
+        ```ruby
+      #{content}
+        ```
 
-[View Source](#{filename})
+        [View Source](#{filename})
 
-}
+      }
     end
 
     # Render intro
     readme.puts %{# Ruby Tricks
 
+[![Join the chat at https://gitter.im/franzejr/ruby-tricks](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/franzejr/ruby-tricks?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 The majority of these Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM).
 If you know some other tricks, please contribute!
-
-}
+    }
 
     # Render table of contents
     readme.puts "## Table of Contents"
