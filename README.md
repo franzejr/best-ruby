@@ -4,7 +4,7 @@
 
 The majority of these Ruby Tricks were extracted from James Edward Gray II [talk](https://www.youtube.com/watch?v=aBgnlBoIkVM).
 If you know some other tricks, please contribute!
-    
+
 ## Table of Contents
 
 - [Associative arrays](#associative-arrays)
@@ -51,8 +51,8 @@ If you know some other tricks, please contribute!
 
 ### Associative arrays
 
-        ```ruby
-      aa = [ %w[Someone 1],
+```ruby
+aa = [ %w[Someone 1],
       %w[Bla 2]]
 
 p aa.assoc("Someone")
@@ -69,15 +69,14 @@ p aa.rassoc("2")
 # ["Someone", "1"]
 # ["Bla", "2"]
 
-        ```
+```
 
-        [View Source](associative_arrays.rb)
+[View Source](associative_arrays.rb)
 
-      
 ### Autovivification
 
-        ```ruby
-      deep = Hash.new { |hash,key| hash[key] = Hash.new(&hash.default_proc) }
+```ruby
+deep = Hash.new { |hash,key| hash[key] = Hash.new(&hash.default_proc) }
 
 
 deep[:a][:b][:c][:d] = 42
@@ -86,15 +85,14 @@ p deep
 # Result:
 # {:a=>{:b=>{:c=>{:d=>42}}}}
 
-        ```
+```
 
-        [View Source](autovivification.rb)
+[View Source](autovivification.rb)
 
-      
 ### Blocks can take blocks
 
-        ```ruby
-      var = :var
+```ruby
+var = :var
 object = Object.new
 
 object.define_singleton_method(:show_var_and_block) do |&block|
@@ -106,15 +104,14 @@ object.show_var_and_block { :block }
 # Result:
 # [:var, #<Proc:0x007ffd6c038128@./blocks_can_take_blocks.rb:8>]
 
-        ```
+```
 
-        [View Source](blocks_can_take_blocks.rb)
+[View Source](blocks_can_take_blocks.rb)
 
-      
 ### Bubbling up thread errors
 
-        ```ruby
-      Thread.abort_on_exception = true
+```ruby
+Thread.abort_on_exception = true
 
 Thread.new do
   fail 'Ops, we cannot continue'
@@ -127,15 +124,14 @@ end
 # Result:
 # ./bubbling_up_thread_errors.rb:4:in `block in <main>': Ops, we cannot continue (RuntimeError)
 
-        ```
+```
 
-        [View Source](bubbling_up_thread_errors.rb)
+[View Source](bubbling_up_thread_errors.rb)
 
-      
 ### Case on ranges
 
-        ```ruby
-      age = rand(1..100)
+```ruby
+age = rand(1..100)
 p age
 
 case age
@@ -151,15 +147,14 @@ end
 # 55
 # "You are at the right age"
 
-        ```
+```
 
-        [View Source](case_on_ranges.rb)
+[View Source](case_on_ranges.rb)
 
-      
 ### Count all objects
 
-        ```ruby
-      require 'pp'
+```ruby
+require 'pp'
 
 pp ObjectSpace.count_objects
 
@@ -183,44 +178,41 @@ pp ObjectSpace.count_objects
 #  :T_NODE=>15896,
 #  :T_ICLASS=>30}
 
-        ```
+```
 
-        [View Source](count_all_objects.rb)
+[View Source](count_all_objects.rb)
 
-      
 ### Cycle
 
-        ```ruby
-      ring = %w[one two three].cycle
+```ruby
+ring = %w[one two three].cycle
 
 p ring.take(5)
 
 # Result:
 # ["one", "two", "three", "one", "two"]
 
-        ```
+```
 
-        [View Source](cycle.rb)
+[View Source](cycle.rb)
 
-      
 ### Data
 
-        ```ruby
-      puts DATA.read
+```ruby
+puts DATA.read
 
 __END__
 Hey oh!
 Hey oh!
 
-        ```
+```
 
-        [View Source](data.rb)
+[View Source](data.rb)
 
-      
 ### Easiest database pstore
 
-        ```ruby
-      require 'pstore'
+```ruby
+require 'pstore'
 
 db = PStore.new('mydatabase.pstore')
 
@@ -250,15 +242,14 @@ end
 # "People \"Someone2\""
 # "Money 300"
 
-        ```
+```
 
-        [View Source](easiest_database_pstore.rb)
+[View Source](easiest_database_pstore.rb)
 
-      
 ### Easiest database pstore yaml
 
-        ```ruby
-      require 'yaml/store'
+```ruby
+require 'yaml/store'
 
 db = YAML::Store.new('people.yml')
 
@@ -288,15 +279,14 @@ end
 # "People \"Someone2\""
 # "Money 300"
 
-        ```
+```
 
-        [View Source](easiest_database_pstore_yaml.rb)
+[View Source](easiest_database_pstore_yaml.rb)
 
-      
 ### Enable garbage collector profiler
 
-        ```ruby
-      GC::Profiler.enable
+```ruby
+GC::Profiler.enable
 
 10.times do
   array = Array.new(1_000_000) { |i| i.to_s }
@@ -304,15 +294,14 @@ end
 
 puts GC::Profiler.result
 
-        ```
+```
 
-        [View Source](enable_garbage_collector_profiler.rb)
+[View Source](enable_garbage_collector_profiler.rb)
 
-      
 ### Enable ruby warnings
 
-        ```ruby
-      $VERBOSE = true
+```ruby
+$VERBOSE = true
 
 class WarnMe
   def var
@@ -328,15 +317,14 @@ p WarnMe.new.var
 # ./enable_ruby_warnings.rb:5: warning: instance variable @var not initialized
 # 42
 
-        ```
+```
 
-        [View Source](enable_ruby_warnings.rb)
+[View Source](enable_ruby_warnings.rb)
 
-      
 ### Fast memoization fibonacci
 
-        ```ruby
-      fibonacci = Hash.new{ |numbers,index|
+```ruby
+fibonacci = Hash.new{ |numbers,index|
   numbers[index] = fibonacci[index - 2] + fibonacci[index - 1]
 }.update(0 => 0, 1 => 1)
 
@@ -346,15 +334,14 @@ p fibonacci[300]
 # Result:
 # 222232244629420445529739893461909967206666939096499764990979600
 
-        ```
+```
 
-        [View Source](fast_memoization_fibonacci.rb)
+[View Source](fast_memoization_fibonacci.rb)
 
-      
 ### Fetch data
 
-        ```ruby
-      params = {var: 42}
+```ruby
+params = {var: 42}
 
 p params.fetch(:var)
 p params.fetch(:missing, 42)
@@ -370,15 +357,14 @@ params.fetch(:missing)
 # ./fetch_data.rb:7:in `fetch': key not found: :missing (KeyError)
 # 	from ./fetch_data.rb:7:in `<main>'
 
-        ```
+```
 
-        [View Source](fetch_data.rb)
+[View Source](fetch_data.rb)
 
-      
 ### Get random data
 
-        ```ruby
-      require 'securerandom'
+```ruby
+require 'securerandom'
 
 p SecureRandom.random_number
 p SecureRandom.random_number(100)
@@ -392,15 +378,14 @@ p SecureRandom.base64(20)
 # "3efb674fbc2ba390856c15489652e75e8afff6d1"
 # "yFv0WzugzFC6/D71teVe1Y5r1kU="
 
-        ```
+```
 
-        [View Source](get_random_data.rb)
+[View Source](get_random_data.rb)
 
-      
 ### Head tail
 
-        ```ruby
-      def my_reduce(array)
+```ruby
+def my_reduce(array)
     head, *tail = array
     return (tail.empty? ? head : (head + my_reduce(tail)))
 end
@@ -409,15 +394,14 @@ end
 n = 100
 my_reduce((1..n).to_a) == (n*(n+1))/2 #=> True
 
-        ```
+```
 
-        [View Source](head_tail.rb)
+[View Source](head_tail.rb)
 
-      
 ### Inject
 
-        ```ruby
-      p (1..10).inject{ |r,e| p [r,e]; r*2}
+```ruby
+p (1..10).inject{ |r,e| p [r,e]; r*2}
 
 
 # Result:
@@ -432,15 +416,14 @@ my_reduce((1..n).to_a) == (n*(n+1))/2 #=> True
 # [256, 10]
 # 512
 
-        ```
+```
 
-        [View Source](inject.rb)
+[View Source](inject.rb)
 
-      
 ### Inspecting the source with script lines
 
-        ```ruby
-      SCRIPT_LINES__ = { }
+```ruby
+SCRIPT_LINES__ = { }
 
 #require_relative = 'better_be_well_formed_code'
 require_relative = 'better_be_well_formed_code_with_a_line_size_greather_than_80_it_is_not_good'
@@ -449,15 +432,14 @@ if SCRIPT_LINES__.values.flatten.any? { |line| line.size > 80}
   abort 'Clean up your code first!'
 end
 
-        ```
+```
 
-        [View Source](inspecting_the_source_with_script_lines.rb)
+[View Source](inspecting_the_source_with_script_lines.rb)
 
-      
 ### Iterating over specific types
 
-        ```ruby
-      ObjectSpace.each_object(String) do |object|
+```ruby
+ObjectSpace.each_object(String) do |object|
   p object
 end
 
@@ -469,15 +451,14 @@ end
 # ... (huge output suppressed)
 # "This rdoc is bundled with Ruby"
 
-        ```
+```
 
-        [View Source](iterating_over_specific_types.rb)
+[View Source](iterating_over_specific_types.rb)
 
-      
 ### Lambda your own syntax
 
-        ```ruby
-      # encoding UTF-8
+```ruby
+# encoding UTF-8
 
 module Kernel
   alias_method :λ, :lambda
@@ -489,15 +470,14 @@ l.call
 # Result:
 # :called
 
-        ```
+```
 
-        [View Source](lambda_your_own_syntax.rb)
+[View Source](lambda_your_own_syntax.rb)
 
-      
 ### Memoization
 
-        ```ruby
-      # based on Justin Weiss' article:
+```ruby
+# based on Justin Weiss' article:
 # http://www.justinweiss.com/articles/4-simple-memoization-patterns-in-ruby-and-one-gem/
 
 class Memoize
@@ -543,15 +523,14 @@ class Memoize
   end
 end
 
-        ```
+```
 
-        [View Source](memoization.rb)
+[View Source](memoization.rb)
 
-      
 ### Print formatted with debug
 
-        ```ruby
-      def debug(name, content)
+```ruby
+def debug(name, content)
   p "%s:  %p" % [name, content]
 end
 
@@ -560,15 +539,14 @@ debug "Num", 42
 # Result:
 # "Num:  42"
 
-        ```
+```
 
-        [View Source](print_formatted_with_debug.rb)
+[View Source](print_formatted_with_debug.rb)
 
-      
 ### Ruby debug flag
 
-        ```ruby
-      def var
+```ruby
+def var
   @var || 40
 end
 
@@ -584,15 +562,14 @@ p var + 2
 # ruby_debug_flag.rb:2: warning: instance variable @var not initialized
 # 42
 
-        ```
+```
 
-        [View Source](ruby_debug_flag.rb)
+[View Source](ruby_debug_flag.rb)
 
-      
 ### Shortcut variable interpolation
 
-        ```ruby
-      @instance = :instance
+```ruby
+@instance = :instance
 @@class = :class
 $global = :global
 
@@ -601,15 +578,14 @@ p "#@instance, #@@class, and #$global variables don't need braces"
 # Result:
 # "instance, class, and global variables don't need braces"
 
-        ```
+```
 
-        [View Source](shortcut_variable_interpolation.rb)
+[View Source](shortcut_variable_interpolation.rb)
 
-      
 ### Single instance running
 
-        ```ruby
-      DATA.flock(File::LOCK_EX | File::LOCK_NB) or abort 'Already running'
+```ruby
+DATA.flock(File::LOCK_EX | File::LOCK_NB) or abort 'Already running'
 
 trap('INT', 'EXIT')
 puts 'Running...'
@@ -620,15 +596,14 @@ end
 __END__
 DO NOT DELETE: used for locking
 
-        ```
+```
 
-        [View Source](single_instance_running.rb)
+[View Source](single_instance_running.rb)
 
-      
 ### Smalltalk conditionals
 
-        ```ruby
-      def  true.-(a, &b); a[] end
+```ruby
+def  true.-(a, &b); a[] end
 def false.-(a, &b); b[] end
 
 puts (1 == 1).--> { :ok } { :different }
@@ -638,15 +613,14 @@ puts (4 == 2).--> { :ok } { :different }
 # # ok
 # # different
 
-        ```
+```
 
-        [View Source](smalltalk_conditionals.rb)
+[View Source](smalltalk_conditionals.rb)
 
-      
 ### Splat operator
 
-        ```ruby
-      # Splat Operator (*) 
+```ruby
+# Splat Operator (*) 
 
 # When calling methods
 
@@ -687,15 +661,14 @@ my_method(third: 3, **arguments)
 
 my_method(first:1, second:2, three:3)
 
-        ```
+```
 
-        [View Source](splat_operator.rb)
+[View Source](splat_operator.rb)
 
-      
 ### Stab operator
 
-        ```ruby
-      # Stab Operator - Lambdas in Ruby 1.9 or later.
+```ruby
+# Stab Operator - Lambdas in Ruby 1.9 or later.
 # Y Combinator
 # Ruby supports a syntax for lambdas known as the 'stab' operator.
 # Rather than something like lambda { a < 5 },
@@ -728,15 +701,14 @@ p fib.(1)
 p fib.(10)
 # Notice that after loading, fib isn't defined anymore.
 
-        ```
+```
 
-        [View Source](stab_operator.rb)
+[View Source](stab_operator.rb)
 
-      
 ### Struct without assignment
 
-        ```ruby
-      Struct.new("Name", :first, :last) do
+```ruby
+Struct.new("Name", :first, :last) do
   def full
     "#{first} #{last}"
   end
@@ -748,15 +720,14 @@ p franzejr.full
 # Result:
 # "Franze Jr"
 
-        ```
+```
 
-        [View Source](struct_without_assignment.rb)
+[View Source](struct_without_assignment.rb)
 
-      
 ### Super magic method
 
-        ```ruby
-      class Parent
+```ruby
+class Parent
   def show_args(*args)
     p args
   end
@@ -773,15 +744,14 @@ Child.new.show_args(:a, :b, :c)
 # Result:
 # [:a, :b, :c]
 
-        ```
+```
 
-        [View Source](super_magic_method.rb)
+[View Source](super_magic_method.rb)
 
-      
 ### Super magic method2
 
-        ```ruby
-      class Parent
+```ruby
+class Parent
   def show_args(*args, &block)
     p [*args, block]
   end
@@ -799,15 +769,14 @@ Child.new.show_args(:a, :b, :c) { :block }
 # Result:
 # [:a, :b, :c, #<Proc:0x007f9bd288bfb0@./super_magic_key_word2.rb:14>]
 
-        ```
+```
 
-        [View Source](super_magic_method2.rb)
+[View Source](super_magic_method2.rb)
 
-      
 ### Super magic method3
 
-        ```ruby
-      class Parent
+```ruby
+class Parent
   def show_args(*args, &block)
     p [*args, block]
   end
@@ -827,15 +796,14 @@ Child.new.show_args(:a, :b, :c)
 # Result:
 # [nil]
 
-        ```
+```
 
-        [View Source](super_magic_method3.rb)
+[View Source](super_magic_method3.rb)
 
-      
 ### Super magic method4
 
-        ```ruby
-      class Parent
+```ruby
+class Parent
   def show_args(*args, &block)
     p [*args, block]
   end
@@ -856,15 +824,14 @@ Child.new.show_args(:a, :b, :c) { :block }
 # Result:
 # [nil]
 
-        ```
+```
 
-        [View Source](super_magic_method4.rb)
+[View Source](super_magic_method4.rb)
 
-      
 ### Super magic method5
 
-        ```ruby
-      class DontDelegateToMe; end
+```ruby
+class DontDelegateToMe; end
 class DelegateToMe; def delegate; "DelegateToMe" end end
 
 module DelegateIfCan
@@ -884,15 +851,14 @@ p DontDelegateToMe.new.extend(DelegateIfCan).delegate
 # "Modified:  DelegateToMe"
 # "DelegateIfCan"
 
-        ```
+```
 
-        [View Source](super_magic_method5.rb)
+[View Source](super_magic_method5.rb)
 
-      
 ### Tail call
 
-        ```ruby
-      RubyVM::InstructionSequence.compile_option = { tailcall_optimization: true,
+```ruby
+RubyVM::InstructionSequence.compile_option = { tailcall_optimization: true,
                                                trace_instruction: false }
 
 eval <<end
@@ -909,15 +875,14 @@ p factorial(100000)
 
 # Result:
 
-        ```
+```
 
-        [View Source](tail_call.rb)
+[View Source](tail_call.rb)
 
-      
 ### Trigger irb as needed
 
-        ```ruby
-      require 'irb'
+```ruby
+require 'irb'
 
 def my_program_context
   @my_program_context ||= Struct.new(:value).new(40)
@@ -937,15 +902,14 @@ end
 # "Current value: 40"
 # "Current value: 40"
 
-        ```
+```
 
-        [View Source](trigger_irb_as_needed.rb)
+[View Source](trigger_irb_as_needed.rb)
 
-      
 ### Unused variable format
 
-        ```ruby
-        [
+```ruby
+  [
     ['Someone', 41, 'another field'],
     ['Someone2', 42, 'another field2'],
     ['Someone3', 43, 'another field3']
@@ -958,30 +922,28 @@ end
 # "Someone2"
 # "Someone3"
 
-        ```
+```
 
-        [View Source](unused_variable_format.rb)
+[View Source](unused_variable_format.rb)
 
-      
 ### Variables from a regex
 
-        ```ruby
-      if  /\A(?<first>\w+),\s*(?<last>\w+)\z/ =~ "Franze, Jr"
+```ruby
+if  /\A(?<first>\w+),\s*(?<last>\w+)\z/ =~ "Franze, Jr"
   puts "#{first} #{last}"
 end
 
 # Result:
 # Franze Jr
 
-        ```
+```
 
-        [View Source](variables_from_a_regex.rb)
+[View Source](variables_from_a_regex.rb)
 
-      
 ### Zip
 
-        ```ruby
-      letters = "a".."d"
+```ruby
+letters = "a".."d"
 numbers = 1..3
 
 letters.zip(numbers) do |letter, number|
@@ -994,11 +956,10 @@ end
 # {:letter=>"c", :number=>3}
 # {:letter=>"d", :number=>nil}
 
-        ```
+```
 
-        [View Source](zip.rb)
+[View Source](zip.rb)
 
-      
 ## Contributors
 
 - [@JEG2](https://github.com/JEG2)
