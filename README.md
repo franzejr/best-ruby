@@ -36,11 +36,11 @@ If you know some other tricks, please contribute!
 - [Splat operator](#splat-operator)
 - [Stab operator](#stab-operator)
 - [Struct without assignment](#struct-without-assignment)
-- [Super magic method](#super-magic-method)
-- [Super magic method2](#super-magic-method2)
-- [Super magic method3](#super-magic-method3)
-- [Super magic method4](#super-magic-method4)
-- [Super magic method5](#super-magic-method5)
+- [Super magic keyword](#super-magic-keyword)
+- [Super magic keyword2](#super-magic-keyword2)
+- [Super magic keyword3](#super-magic-keyword3)
+- [Super magic keyword4](#super-magic-keyword4)
+- [Super magic keyword5](#super-magic-keyword5)
 - [Tail call](#tail-call)
 - [Trigger irb as needed](#trigger-irb-as-needed)
 - [Unused variable format](#unused-variable-format)
@@ -724,7 +724,7 @@ p franzejr.full
 
 [View Source](struct_without_assignment.rb)
 
-### Super magic method
+### Super magic keyword
 
 ```ruby
 class Parent
@@ -746,9 +746,9 @@ Child.new.show_args(:a, :b, :c)
 
 ```
 
-[View Source](super_magic_method.rb)
+[View Source](super_magic_keyword.rb)
 
-### Super magic method2
+### Super magic keyword2
 
 ```ruby
 class Parent
@@ -767,13 +767,13 @@ end
 Child.new.show_args(:a, :b, :c) { :block }
 
 # Result:
-# [:a, :b, :c, #<Proc:0x007f9bd288bfb0@./super_magic_key_word2.rb:14>]
+# [:a, :b, :c, #<Proc:0x007fbf7a0486e8@super_magic_keyword2.rb:14>]
 
 ```
 
-[View Source](super_magic_method2.rb)
+[View Source](super_magic_keyword2.rb)
 
-### Super magic method3
+### Super magic keyword3
 
 ```ruby
 class Parent
@@ -798,9 +798,9 @@ Child.new.show_args(:a, :b, :c)
 
 ```
 
-[View Source](super_magic_method3.rb)
+[View Source](super_magic_keyword3.rb)
 
-### Super magic method4
+### Super magic keyword4
 
 ```ruby
 class Parent
@@ -826,9 +826,9 @@ Child.new.show_args(:a, :b, :c) { :block }
 
 ```
 
-[View Source](super_magic_method4.rb)
+[View Source](super_magic_keyword4.rb)
 
-### Super magic method5
+### Super magic keyword5
 
 ```ruby
 class DontDelegateToMe; end
@@ -853,7 +853,7 @@ p DontDelegateToMe.new.extend(DelegateIfCan).delegate
 
 ```
 
-[View Source](super_magic_method5.rb)
+[View Source](super_magic_keyword5.rb)
 
 ### Tail call
 
