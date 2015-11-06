@@ -30,6 +30,7 @@ If you know some other tricks, please contribute!
 - [Ruby debug flag](#ruby-debug-flag)
 - [Shortcut variable interpolation](#shortcut-variable-interpolation)
 - [Single instance running](#single-instance-running)
+- [Smalltalk conditionals](#smalltalk-conditionals)
 - [Splat operator](#splat-operator)
 - [Stab operator](#stab-operator)
 - [Struct without assignment](#struct-without-assignment)
@@ -597,6 +598,23 @@ DO NOT DELETE: used for locking
 
 [View Source](single_instance_running.rb)
 
+### Smalltalk conditionals
+
+```ruby
+def  true.-(a, &b); a[] end
+def false.-(a, &b); b[] end
+
+puts (1 == 1).--> { :ok } { :different }
+puts (4 == 2).--> { :ok } { :different }
+
+# Result:
+# # ok
+# # different
+
+```
+
+[View Source](smalltalk_conditionals.rb)
+
 ### Splat operator
 
 ```ruby
@@ -955,6 +973,7 @@ end
 - [@xzgyb](https://github.com/xzgyb)
 - [@filipebarcos](https://github.com/filipebarcos)
 - [@ezekg](https://github.com/ezekg)
+- [@0x0dea](https://github.com/0x0dea)
 
 ## Contributing
 
