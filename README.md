@@ -7,6 +7,7 @@ If you know some other tricks, please contribute!
 
 ## Table of Contents
 
+- [Alphanumeric incrementing](#alphanumeric-incrementing)
 - [Associative arrays](#associative-arrays)
 - [Autovivification](#autovivification)
 - [Blocks can take blocks](#blocks-can-take-blocks)
@@ -48,6 +49,34 @@ If you know some other tricks, please contribute!
 - [Zip](#zip)
 
 ## Tricks
+
+### Alphanumeric incrementing
+
+```ruby
+"1".next
+#=> "2"
+
+"a".next
+#=> "b"
+
+"1a".next
+#=> "1b"
+
+"1z".next
+#=> "2a"
+
+"1aa".next
+#=> "1ab"
+
+"1az".next
+#=> "1ba"
+
+"1aaz".next
+#=> "1aba"
+
+```
+
+[View Source](alphanumeric_incrementing.rb)
 
 ### Associative arrays
 
