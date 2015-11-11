@@ -44,6 +44,7 @@ If you know some other tricks, please contribute!
 - [Super magic keyword5](#super-magic-keyword5)
 - [Tail call](#tail-call)
 - [Trigger irb as needed](#trigger-irb-as-needed)
+- [Unfreeze objects with fiddle](#unfreeze-objects-with-fiddle)
 - [Unused variable format](#unused-variable-format)
 - [Variables from a regex](#variables-from-a-regex)
 - [Zip](#zip)
@@ -934,6 +935,44 @@ end
 ```
 
 [View Source](trigger_irb_as_needed.rb)
+
+### Unfreeze objects with fiddle
+
+```ruby
+require 'fiddle'
+
+class Object
+  # RUBY_FL_FREEZE = (1<<11) http://git.io/v8WEt
+
+  # [         0          ][        1        ]
+  #  0 1 2 3  4  5  6   7    8   9   10   11 ...
+  #  1 2 4 8 16 32 64 128  256 512 1024 2048 ...
+  #                          1   2    4    8 < Zero this bit unconditionally.
+  def unfreeze
+    Fiddle::Pointer.new(object_id * 2)[1] &= ~8
+    self
+  end
+
+  alias thaw unfreeze
+end
+
+str = 'foo'.freeze
+p str.frozen?
+str << 'bar' rescue p $!
+
+str.thaw
+p str.frozen?
+p str << 'bar'
+
+# Result:
+# true
+# #<RuntimeError: can't modify frozen String>
+# false
+# "foobar"
+
+```
+
+[View Source](unfreeze_objects_with_fiddle.rb)
 
 ### Unused variable format
 
