@@ -14,3 +14,4 @@
 - [@filipebarcos](https://github.com/filipebarcos)
 - [@ezekg](https://github.com/ezekg)
 - [@0x0dea](https://github.com/0x0dea)
+- [@SkylerRogers](https://github.com/SkylerRogers)
