@@ -1,4 +1,4 @@
 *.lock
 *.pstore
-
+.DS_Store
 .idea
