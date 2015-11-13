@@ -37,4 +37,4 @@ my_method(third: 3, **arguments)
 
 # Are equivalent to:
 
-my_method(first:1, second:2, three:3)
+my_method(first:1, second:2, third:3)
