@@ -1,3 +1,5 @@
+require './lib/contributor'
+
 desc "Build README.md from source files"
 task :build do
   toc    = []
@@ -67,4 +69,14 @@ If you know some other tricks, please contribute!
 1. Create new Pull Request and explain why your code is trick
 }
   end
+end
+
+desc 'Adds the given name a contributor'
+task :add_contributor do |t, args|
+  contributor = ARGV[1]
+  raise ArgumentError, 'Contributor name is required' if contributor.nil?
+  Contributor.new(contributor).add
+  Rake::Task['build'].execute
+  puts "#{contributor} was added as a contributor"
+  exit
 end
