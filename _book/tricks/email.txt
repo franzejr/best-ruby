@@ -1,0 +1,7 @@
+# This is just a simple example on how you can run a ruby code
+# This is a text file. ./ruby email.txt will run this.
+#! /usr/bin/env ruby -w
+
+puts "This is one email"
+
+__END__
