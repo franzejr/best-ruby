@@ -5,9 +5,9 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Introduction | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
+        <title>Head tail | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="Do you know why experienced Ruby programmers tend to reach for basic collectionsand hashes while programmers from other languages go for more specialized classes?Do you know the difference between strip, chop, and chomp, and why there are threesuch similar methods when apparently one might suffice? (Not to mention lstrip andrstrip!) Do you know the downsides of dynamic typing? Do you know why the differencesbetween strings and symbols get so blurry, even to experienced Ruby developers?How about metaprogramming? What the heck is an eigenclass? How aboutprotected methods? Do you know what they’re really about? Really? Are you sure?Eloquent Ruby">
+        <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
         
         
@@ -15,21 +15,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
         
-    <link rel="stylesheet" href="gitbook/style.css">
+    <link rel="stylesheet" href="../gitbook/style.css">
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-highlight/website.css">
-        
-    
-        
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
         
-        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
         
     
     
@@ -37,8 +37,10 @@
         
     
     
-    <link rel="next" href="./tricks.html" />
+    <link rel="next" href="../tricks/inject.html" />
     
+    
+    <link rel="prev" href="../tricks/get-random-data.html" />
     
 
         
@@ -46,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="0" data-chapter-title="Introduction" data-filepath="README.md" data-basepath="." data-revision="Sat Nov 21 2015 18:21:20 GMT+0000 (UTC)">
+    <div class="book" data-level="1.18" data-chapter-title="Head tail" data-filepath="tricks/head-tail.md" data-basepath=".." data-revision="Sat Nov 21 2015 18:21:20 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -61,10 +63,10 @@
 
             
     
-        <li class="chapter active" data-level="0" data-path="index.html">
+        <li class="chapter " data-level="0" data-path="index.html">
             
                 
-                    <a href="./index.html">
+                    <a href="../index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -77,7 +79,7 @@
         <li class="chapter " data-level="1" data-path="tricks.html">
             
                 
-                    <a href="./tricks.html">
+                    <a href="../tricks.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -93,7 +95,7 @@
         <li class="chapter " data-level="1.1" data-path="tricks/alphanumeric-incrementing.html">
             
                 
-                    <a href="./tricks/alphanumeric-incrementing.html">
+                    <a href="../tricks/alphanumeric-incrementing.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -108,7 +110,7 @@
         <li class="chapter " data-level="1.2" data-path="tricks/associative-arrays.html">
             
                 
-                    <a href="./tricks/associative-arrays.html">
+                    <a href="../tricks/associative-arrays.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -123,7 +125,7 @@
         <li class="chapter " data-level="1.3" data-path="tricks/at-exit-method.html">
             
                 
-                    <a href="./tricks/at-exit-method.html">
+                    <a href="../tricks/at-exit-method.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -138,7 +140,7 @@
         <li class="chapter " data-level="1.4" data-path="tricks/autovivification.html">
             
                 
-                    <a href="./tricks/autovivification.html">
+                    <a href="../tricks/autovivification.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -153,7 +155,7 @@
         <li class="chapter " data-level="1.5" data-path="tricks/blocks-can-take-blocks.html">
             
                 
-                    <a href="./tricks/blocks-can-take-blocks.html">
+                    <a href="../tricks/blocks-can-take-blocks.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -168,7 +170,7 @@
         <li class="chapter " data-level="1.6" data-path="tricks/bubbling-up-thread-errors.html">
             
                 
-                    <a href="./tricks/bubbling-up-thread-errors.html">
+                    <a href="../tricks/bubbling-up-thread-errors.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -183,7 +185,7 @@
         <li class="chapter " data-level="1.7" data-path="tricks/case-on-ranges.html">
             
                 
-                    <a href="./tricks/case-on-ranges.html">
+                    <a href="../tricks/case-on-ranges.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -198,7 +200,7 @@
         <li class="chapter " data-level="1.8" data-path="tricks/count-all-objects.html">
             
                 
-                    <a href="./tricks/count-all-objects.html">
+                    <a href="../tricks/count-all-objects.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -213,7 +215,7 @@
         <li class="chapter " data-level="1.9" data-path="tricks/cycle.html">
             
                 
-                    <a href="./tricks/cycle.html">
+                    <a href="../tricks/cycle.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -228,7 +230,7 @@
         <li class="chapter " data-level="1.10" data-path="tricks/data.html">
             
                 
-                    <a href="./tricks/data.html">
+                    <a href="../tricks/data.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -243,7 +245,7 @@
         <li class="chapter " data-level="1.11" data-path="tricks/easiest-database-pstore.html">
             
                 
-                    <a href="./tricks/easiest-database-pstore.html">
+                    <a href="../tricks/easiest-database-pstore.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -258,7 +260,7 @@
         <li class="chapter " data-level="1.12" data-path="tricks/easiest-database-pstore-yaml.html">
             
                 
-                    <a href="./tricks/easiest-database-pstore-yaml.html">
+                    <a href="../tricks/easiest-database-pstore-yaml.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -273,7 +275,7 @@
         <li class="chapter " data-level="1.13" data-path="tricks/enable-garbage-collector-profiler.html">
             
                 
-                    <a href="./tricks/enable-garbage-collector-profiler.html">
+                    <a href="../tricks/enable-garbage-collector-profiler.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -288,7 +290,7 @@
         <li class="chapter " data-level="1.14" data-path="tricks/enable-ruby-warnings.html">
             
                 
-                    <a href="./tricks/enable-ruby-warnings.html">
+                    <a href="../tricks/enable-ruby-warnings.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -303,7 +305,7 @@
         <li class="chapter " data-level="1.15" data-path="tricks/fast-memoization-fibonacci.html">
             
                 
-                    <a href="./tricks/fast-memoization-fibonacci.html">
+                    <a href="../tricks/fast-memoization-fibonacci.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -318,7 +320,7 @@
         <li class="chapter " data-level="1.16" data-path="tricks/fetch-data.html">
             
                 
-                    <a href="./tricks/fetch-data.html">
+                    <a href="../tricks/fetch-data.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -333,7 +335,7 @@
         <li class="chapter " data-level="1.17" data-path="tricks/get-random-data.html">
             
                 
-                    <a href="./tricks/get-random-data.html">
+                    <a href="../tricks/get-random-data.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -345,10 +347,10 @@
             
         </li>
     
-        <li class="chapter " data-level="1.18" data-path="tricks/head-tail.html">
+        <li class="chapter active" data-level="1.18" data-path="tricks/head-tail.html">
             
                 
-                    <a href="./tricks/head-tail.html">
+                    <a href="../tricks/head-tail.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -363,7 +365,7 @@
         <li class="chapter " data-level="1.19" data-path="tricks/inject.html">
             
                 
-                    <a href="./tricks/inject.html">
+                    <a href="../tricks/inject.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -378,7 +380,7 @@
         <li class="chapter " data-level="1.20" data-path="tricks/inspecting-the-source-with-script-lines.html">
             
                 
-                    <a href="./tricks/inspecting-the-source-with-script-lines.html">
+                    <a href="../tricks/inspecting-the-source-with-script-lines.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -393,7 +395,7 @@
         <li class="chapter " data-level="1.21" data-path="tricks/iterating-over-specific-types.html">
             
                 
-                    <a href="./tricks/iterating-over-specific-types.html">
+                    <a href="../tricks/iterating-over-specific-types.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -408,7 +410,7 @@
         <li class="chapter " data-level="1.22" data-path="tricks/lambda-your-own-syntax.html">
             
                 
-                    <a href="./tricks/lambda-your-own-syntax.html">
+                    <a href="../tricks/lambda-your-own-syntax.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -423,7 +425,7 @@
         <li class="chapter " data-level="1.23" data-path="tricks/memoization.html">
             
                 
-                    <a href="./tricks/memoization.html">
+                    <a href="../tricks/memoization.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -438,7 +440,7 @@
         <li class="chapter " data-level="1.24" data-path="tricks/print-formatted-with-debug.html">
             
                 
-                    <a href="./tricks/print-formatted-with-debug.html">
+                    <a href="../tricks/print-formatted-with-debug.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -453,7 +455,7 @@
         <li class="chapter " data-level="1.25" data-path="tricks/ruby-debug-flag.html">
             
                 
-                    <a href="./tricks/ruby-debug-flag.html">
+                    <a href="../tricks/ruby-debug-flag.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -468,7 +470,7 @@
         <li class="chapter " data-level="1.26" data-path="tricks/shortcut-variable-interpolation.html">
             
                 
-                    <a href="./tricks/shortcut-variable-interpolation.html">
+                    <a href="../tricks/shortcut-variable-interpolation.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -483,7 +485,7 @@
         <li class="chapter " data-level="1.27" data-path="tricks/single-instance-running.html">
             
                 
-                    <a href="./tricks/single-instance-running.html">
+                    <a href="../tricks/single-instance-running.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -498,7 +500,7 @@
         <li class="chapter " data-level="1.28" data-path="tricks/smalltalk-conditionals.html">
             
                 
-                    <a href="./tricks/smalltalk-conditionals.html">
+                    <a href="../tricks/smalltalk-conditionals.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -513,7 +515,7 @@
         <li class="chapter " data-level="1.29" data-path="tricks/splat-operator.html">
             
                 
-                    <a href="./tricks/splat-operator.html">
+                    <a href="../tricks/splat-operator.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -528,7 +530,7 @@
         <li class="chapter " data-level="1.30" data-path="tricks/stab-operator.html">
             
                 
-                    <a href="./tricks/stab-operator.html">
+                    <a href="../tricks/stab-operator.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -543,7 +545,7 @@
         <li class="chapter " data-level="1.31" data-path="tricks/struct-without-assignment.html">
             
                 
-                    <a href="./tricks/struct-without-assignment.html">
+                    <a href="../tricks/struct-without-assignment.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -558,7 +560,7 @@
         <li class="chapter " data-level="1.32" data-path="tricks/super-magic-keyword.html">
             
                 
-                    <a href="./tricks/super-magic-keyword.html">
+                    <a href="../tricks/super-magic-keyword.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -573,7 +575,7 @@
         <li class="chapter " data-level="1.33" data-path="tricks/super-magic-keyword2.html">
             
                 
-                    <a href="./tricks/super-magic-keyword2.html">
+                    <a href="../tricks/super-magic-keyword2.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -588,7 +590,7 @@
         <li class="chapter " data-level="1.34" data-path="tricks/super-magic-keyword3.html">
             
                 
-                    <a href="./tricks/super-magic-keyword3.html">
+                    <a href="../tricks/super-magic-keyword3.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -603,7 +605,7 @@
         <li class="chapter " data-level="1.35" data-path="tricks/super-magic-keyword4.html">
             
                 
-                    <a href="./tricks/super-magic-keyword4.html">
+                    <a href="../tricks/super-magic-keyword4.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -618,7 +620,7 @@
         <li class="chapter " data-level="1.36" data-path="tricks/super-magic-keyword5.html">
             
                 
-                    <a href="./tricks/super-magic-keyword5.html">
+                    <a href="../tricks/super-magic-keyword5.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -633,7 +635,7 @@
         <li class="chapter " data-level="1.37" data-path="tricks/tail-call.html">
             
                 
-                    <a href="./tricks/tail-call.html">
+                    <a href="../tricks/tail-call.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -648,7 +650,7 @@
         <li class="chapter " data-level="1.38" data-path="tricks/trigger-irb-as-needed.html">
             
                 
-                    <a href="./tricks/trigger-irb-as-needed.html">
+                    <a href="../tricks/trigger-irb-as-needed.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -663,7 +665,7 @@
         <li class="chapter " data-level="1.39" data-path="tricks/unfreeze-objects-with-fiddle.html">
             
                 
-                    <a href="./tricks/unfreeze-objects-with-fiddle.html">
+                    <a href="../tricks/unfreeze-objects-with-fiddle.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -678,7 +680,7 @@
         <li class="chapter " data-level="1.40" data-path="tricks/unused-variable-format.html">
             
                 
-                    <a href="./tricks/unused-variable-format.html">
+                    <a href="../tricks/unused-variable-format.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -693,7 +695,7 @@
         <li class="chapter " data-level="1.41" data-path="tricks/variables-from-a-regex.html">
             
                 
-                    <a href="./tricks/variables-from-a-regex.html">
+                    <a href="../tricks/variables-from-a-regex.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -708,7 +710,7 @@
         <li class="chapter " data-level="1.42" data-path="tricks/zip.html">
             
                 
-                    <a href="./tricks/zip.html">
+                    <a href="../tricks/zip.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -728,7 +730,7 @@
         <li class="chapter " data-level="2" data-path="idiomatic_ruby.html">
             
                 
-                    <a href="./idiomatic_ruby.html">
+                    <a href="../idiomatic_ruby.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -744,7 +746,7 @@
         <li class="chapter " data-level="2.1" data-path="idiomatic_ruby/each_vs_map.html">
             
                 
-                    <a href="./idiomatic_ruby/each_vs_map.html">
+                    <a href="../idiomatic_ruby/each_vs_map.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -759,7 +761,7 @@
         <li class="chapter " data-level="2.2" data-path="idiomatic_ruby/inner_assignment_conditional.html">
             
                 
-                    <a href="./idiomatic_ruby/inner_assignment_conditional.html">
+                    <a href="../idiomatic_ruby/inner_assignment_conditional.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -774,7 +776,7 @@
         <li class="chapter " data-level="2.3" data-path="idiomatic_ruby/combine_elements_in_collection.html">
             
                 
-                    <a href="./idiomatic_ruby/combine_elements_in_collection.html">
+                    <a href="../idiomatic_ruby/combine_elements_in_collection.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -789,7 +791,7 @@
         <li class="chapter " data-level="2.4" data-path="idiomatic_ruby/array_of_strings_symbols.html">
             
                 
-                    <a href="./idiomatic_ruby/array_of_strings_symbols.html">
+                    <a href="../idiomatic_ruby/array_of_strings_symbols.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -804,7 +806,7 @@
         <li class="chapter " data-level="2.5" data-path="idiomatic_ruby/multiple_assignment.html">
             
                 
-                    <a href="./idiomatic_ruby/multiple_assignment.html">
+                    <a href="../idiomatic_ruby/multiple_assignment.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -819,7 +821,7 @@
         <li class="chapter " data-level="2.6" data-path="idiomatic_ruby/use_symbol_to_proc.html">
             
                 
-                    <a href="./idiomatic_ruby/use_symbol_to_proc.html">
+                    <a href="../idiomatic_ruby/use_symbol_to_proc.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -834,7 +836,7 @@
         <li class="chapter " data-level="2.7" data-path="idiomatic_ruby/array_sample.html">
             
                 
-                    <a href="./idiomatic_ruby/array_sample.html">
+                    <a href="../idiomatic_ruby/array_sample.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -849,7 +851,7 @@
         <li class="chapter " data-level="2.8" data-path="idiomatic_ruby/use_times.html">
             
                 
-                    <a href="./idiomatic_ruby/use_times.html">
+                    <a href="../idiomatic_ruby/use_times.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -869,7 +871,7 @@
         <li class="chapter " data-level="3" data-path="refactorings.html">
             
                 
-                    <a href="./refactorings.html">
+                    <a href="../refactorings.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -885,7 +887,7 @@
         <li class="chapter " data-level="3.1" data-path="refactorings/refactoring_switch_case_with_hashes.html">
             
                 
-                    <a href="./refactorings/refactoring_switch_case_with_hashes.html">
+                    <a href="../refactorings/refactoring_switch_case_with_hashes.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -905,7 +907,7 @@
         <li class="chapter " data-level="4" data-path="best_practices.html">
             
                 
-                    <a href="./best_practices.html">
+                    <a href="../best_practices.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -921,7 +923,7 @@
         <li class="chapter " data-level="4.1" data-path="best_practices/using_exception_e.html">
             
                 
-                    <a href="./best_practices/using_exception_e.html">
+                    <a href="../best_practices/using_exception_e.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -961,7 +963,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="./" >Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</a>
+        <a href="../" >Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</a>
     </h1>
 </div>
 
@@ -971,41 +973,17 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="ruby-tricks-idiomatic-ruby-refactorings-and-best-practices">Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</h1>
-<blockquote>
-<p>Do you know why experienced Ruby programmers tend to reach for basic collections
-and hashes while programmers from other languages go for more specialized classes?
-Do you know the difference between strip, chop, and chomp, and why there are three
-such similar methods when apparently one might suffice? (Not to mention lstrip and
-rstrip!) Do you know the downsides of dynamic typing? Do you know why the differences
-between strings and symbols get so blurry, even to experienced Ruby developers?
-How about metaprogramming? What the heck is an eigenclass? How about
-protected methods? Do you know what they&#x2019;re really about? Really? Are you sure?
-<a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104" target="_blank">Eloquent Ruby</a></p>
-</blockquote>
-<p>Ruby is a tricky language, you can check some tricks <a href="https://github.com/franzejr/ruby-tricks" target="_blank">here</a>. Using tricks and tips and Ruby itself you can make good refactorings in your code.</p>
-<blockquote>
-<p>Absolutely the best way to learn to write idiomatic Ruby code is to read idiomatic Ruby code. <a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104" target="_blank">Eloquent Ruby</a></p>
-</blockquote>
-<p>This repository aims to help everyone to write a more idiomatic, clean and tricky ruby code and also try to join a bunch of good refactoring techniques. You can add your own technique or paste it from some website(do not forget the source, of course). All the tricks are in the /tricks folder.</p>
-<p>For the sake of reading, you should paste in the markdown format and at the end, paste where the technique come from, if it&apos;s not yours.</p>
-<h2 id="tricks"><a href="tricks.html">Tricks</a></h2>
-<p>In this part we can check some obscure or awesome features from the and the standard ruby library which normally we forget.</p>
-<h2 id="idiomatic-ruby"><a href="idiomatic_ruby.html">Idiomatic Ruby</a></h2>
-<p>You can write a Ruby code, but it can look like a Java code for example. Here you can find some tips to write a more natural and take advantage of Ruby.</p>
-<h2 id="refactorings"><a href="refactorings.html">Refactorings</a></h2>
-<h2 id="best-practices"><a href="best_practices.html">Best Practices</a></h2>
-<h2 id="contributors">Contributors</h2>
-<p>A big thanks to the following <a href="https://github.com/franzejr/best-ruby/graphs/contributors" target="_blank">persons</a></p>
-<h2 id="contributing">Contributing</h2>
-<ol>
-<li><a href="https://github.com/franzejr/best-ruby" target="_blank">Fork it</a></li>
-<li>Create your refactoring technique branch: <code>git checkout -b my-technique</code></li>
-<li>Add your technique to the collection of <code>.md</code> files in the correct folder (tricks, refactorings, idiomatic_ruby or best_practices) folder</li>
-<li>Commit your changes: <code>git commit -am &apos;Add my technique&apos;</code></li>
-<li>Push to the branch: <code>git push origin mytechnique</code></li>
-<li>Create a new Pull Request and explain your technique in the markdown file</li>
-</ol>
+                        <h3 id="head-tail">Head tail</h3>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_reduce</span><span class="hljs-params">(array)</span></span>
+    head, *tail = array
+    <span class="hljs-keyword">return</span> (tail.empty? ? head <span class="hljs-symbol">:</span> (head + my_reduce(tail)))
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-comment"># triangular number example</span>
+n = <span class="hljs-number">100</span>
+my_reduce((<span class="hljs-number">1</span>..n).to_a) == (n*(n+<span class="hljs-number">1</span>))/<span class="hljs-number">2</span> <span class="hljs-comment">#=&gt; True</span>
+</code></pre>
+<p><a href="source_code/head_tail.rb">View Source</a></p>
 
                     
                     </section>
@@ -1016,33 +994,35 @@ protected methods? Do you know what they&#x2019;re really about? Really? Are you
         </div>
 
         
+        <a href="../tricks/get-random-data.html" class="navigation navigation-prev " aria-label="Previous page: Get random data"><i class="fa fa-angle-left"></i></a>
         
-        <a href="./tricks.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Tricks"><i class="fa fa-angle-right"></i></a>
+        
+        <a href="../tricks/inject.html" class="navigation navigation-next " aria-label="Next page: Inject"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-<script src="gitbook/app.js"></script>
+<script src="../gitbook/app.js"></script>
 
     
-    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
-    
-
-    
-    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
     
-    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
     
 
     
-    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
     
 
     
-    <script src="gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
+    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-livereload/plugin.js"></script>
     
 
 <script>

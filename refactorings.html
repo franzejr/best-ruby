@@ -5,9 +5,9 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Introduction | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
+        <title>Refactorings | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="Do you know why experienced Ruby programmers tend to reach for basic collectionsand hashes while programmers from other languages go for more specialized classes?Do you know the difference between strip, chop, and chomp, and why there are threesuch similar methods when apparently one might suffice? (Not to mention lstrip andrstrip!) Do you know the downsides of dynamic typing? Do you know why the differencesbetween strings and symbols get so blurry, even to experienced Ruby developers?How about metaprogramming? What the heck is an eigenclass? How aboutprotected methods? Do you know what they’re really about? Really? Are you sure?Eloquent Ruby">
+        <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
         
         
@@ -37,8 +37,10 @@
         
     
     
-    <link rel="next" href="./tricks.html" />
+    <link rel="next" href="./refactorings/refactoring_switch_case_with_hashes.html" />
     
+    
+    <link rel="prev" href="./idiomatic_ruby/use_times.html" />
     
 
         
@@ -46,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="0" data-chapter-title="Introduction" data-filepath="README.md" data-basepath="." data-revision="Sat Nov 21 2015 18:21:20 GMT+0000 (UTC)">
+    <div class="book" data-level="3" data-chapter-title="Refactorings" data-filepath="refactorings.md" data-basepath="." data-revision="Sat Nov 21 2015 18:21:20 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -61,7 +63,7 @@
 
             
     
-        <li class="chapter active" data-level="0" data-path="index.html">
+        <li class="chapter " data-level="0" data-path="index.html">
             
                 
                     <a href="./index.html">
@@ -866,7 +868,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3" data-path="refactorings.html">
+        <li class="chapter active" data-level="3" data-path="refactorings.html">
             
                 
                     <a href="./refactorings.html">
@@ -971,41 +973,11 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="ruby-tricks-idiomatic-ruby-refactorings-and-best-practices">Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</h1>
-<blockquote>
-<p>Do you know why experienced Ruby programmers tend to reach for basic collections
-and hashes while programmers from other languages go for more specialized classes?
-Do you know the difference between strip, chop, and chomp, and why there are three
-such similar methods when apparently one might suffice? (Not to mention lstrip and
-rstrip!) Do you know the downsides of dynamic typing? Do you know why the differences
-between strings and symbols get so blurry, even to experienced Ruby developers?
-How about metaprogramming? What the heck is an eigenclass? How about
-protected methods? Do you know what they&#x2019;re really about? Really? Are you sure?
-<a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104" target="_blank">Eloquent Ruby</a></p>
-</blockquote>
-<p>Ruby is a tricky language, you can check some tricks <a href="https://github.com/franzejr/ruby-tricks" target="_blank">here</a>. Using tricks and tips and Ruby itself you can make good refactorings in your code.</p>
-<blockquote>
-<p>Absolutely the best way to learn to write idiomatic Ruby code is to read idiomatic Ruby code. <a href="http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104" target="_blank">Eloquent Ruby</a></p>
-</blockquote>
-<p>This repository aims to help everyone to write a more idiomatic, clean and tricky ruby code and also try to join a bunch of good refactoring techniques. You can add your own technique or paste it from some website(do not forget the source, of course). All the tricks are in the /tricks folder.</p>
-<p>For the sake of reading, you should paste in the markdown format and at the end, paste where the technique come from, if it&apos;s not yours.</p>
-<h2 id="tricks"><a href="tricks.html">Tricks</a></h2>
-<p>In this part we can check some obscure or awesome features from the and the standard ruby library which normally we forget.</p>
-<h2 id="idiomatic-ruby"><a href="idiomatic_ruby.html">Idiomatic Ruby</a></h2>
-<p>You can write a Ruby code, but it can look like a Java code for example. Here you can find some tips to write a more natural and take advantage of Ruby.</p>
-<h2 id="refactorings"><a href="refactorings.html">Refactorings</a></h2>
-<h2 id="best-practices"><a href="best_practices.html">Best Practices</a></h2>
-<h2 id="contributors">Contributors</h2>
-<p>A big thanks to the following <a href="https://github.com/franzejr/best-ruby/graphs/contributors" target="_blank">persons</a></p>
-<h2 id="contributing">Contributing</h2>
-<ol>
-<li><a href="https://github.com/franzejr/best-ruby" target="_blank">Fork it</a></li>
-<li>Create your refactoring technique branch: <code>git checkout -b my-technique</code></li>
-<li>Add your technique to the collection of <code>.md</code> files in the correct folder (tricks, refactorings, idiomatic_ruby or best_practices) folder</li>
-<li>Commit your changes: <code>git commit -am &apos;Add my technique&apos;</code></li>
-<li>Push to the branch: <code>git push origin mytechnique</code></li>
-<li>Create a new Pull Request and explain your technique in the markdown file</li>
-</ol>
+                        <h1 id="refactorings">Refactorings</h1>
+<ul>
+<li><a href="refactorings/refactoring_switch_case_with_hashses.md">Refactoring switch case with Hashes</a></li>
+<li><a href="refactorings/conditionals_when_object_is_nil.md">Conditionals when object is nil</a></li>
+</ul>
 
                     
                     </section>
@@ -1016,8 +988,10 @@ protected methods? Do you know what they&#x2019;re really about? Really? Are you
         </div>
 
         
+        <a href="./idiomatic_ruby/use_times.html" class="navigation navigation-prev " aria-label="Previous page: Use Fixnum#times"><i class="fa fa-angle-left"></i></a>
         
-        <a href="./tricks.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Tricks"><i class="fa fa-angle-right"></i></a>
+        
+        <a href="./refactorings/refactoring_switch_case_with_hashes.html" class="navigation navigation-next " aria-label="Next page: Refactoring switch case with Hashes"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
