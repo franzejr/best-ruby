@@ -1,0 +1,11 @@
+ruby -e 'puts { is_this_a_block }' --dump parsetree
+ruby -e 'puts { is_this_a_block }' --dump parsetree_with_comment
+
+# Output yacc's debug info when ruby parsing code.
+ruby -e 'puts { is_this_a_block }' --dump yydebug
+
+# Check ruby code syntax whether OK.
+ruby -e 'puts { is_this_a_block }' --dump syntax
+
+# Output yarv instructions info of compiled ruby code.
+ruby -e 'puts { is_this_a_block }' --dump insns

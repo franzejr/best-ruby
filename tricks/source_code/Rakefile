@@ -1,0 +1,47 @@
+
+desc "Build summary.md from source files"
+task :build do
+  toc    = []
+
+  File.open("SUMMARY.md", "w+") do |summary|
+
+    Dir.glob("*.rb").sort.each do |file|
+      filename = File.basename file
+      heading  = File.basename(file, ".rb").tr("_", " ").capitalize
+      link     = heading.tr(" ", "-").downcase
+      content  = File.read file
+
+      # Add link to table on contents
+      toc << "[#{heading}](#{link}.md)"
+
+      # Add trick file
+      trick_content_file = %{### #{heading}
+
+```ruby
+#{content}
+```
+
+[View Source](source_code/#{filename})
+
+}
+
+        # Render tricks
+        File.open("#{link}.md", 'w+') do |trick_file|
+          trick_file.puts trick_content_file
+        end
+
+    end
+
+
+    # Render intro
+    summary.puts %{# Tricks}
+
+    # Render table of contents
+    summary.puts "\n"
+    toc.each do |link|
+      summary.puts "- #{link}"
+    end
+
+    summary.puts "\n"
+  end
+end
