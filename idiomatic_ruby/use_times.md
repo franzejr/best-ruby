@@ -1,13 +1,13 @@
 ## Use Fixnum#times
 
-**Use**
+**Rather than**
 ```ruby
 for i in 1..10
   puts 'My iteration'
 end
 ```
 
-**Rather than**
+**Use**
 ```ruby
 5.times do
   puts 'My iteration'
