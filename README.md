@@ -10,8 +10,6 @@
 > protected methods? Do you know what they’re really about? Really? Are you sure?
 [Eloquent Ruby](http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104)
 
-Ruby is a tricky language, you can check some tricks [here](https://github.com/franzejr/ruby-tricks). Using tricks and tips and Ruby itself you can make good refactorings in your code.
-
 > Absolutely the best way to learn to write idiomatic Ruby code is to read idiomatic Ruby code. [Eloquent Ruby](http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104)
 
 This repository aims to help everyone to write a more idiomatic, clean and tricky ruby code and also try to join a bunch of good refactoring techniques. You can add your own technique or paste it from some website(do not forget the source, of course). All the tricks are in the /tricks folder.
