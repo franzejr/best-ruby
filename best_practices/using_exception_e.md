@@ -57,7 +57,7 @@ Exception
    ZeroDivisionError
  SystemExit
  fatal
- ```
+```
 
 **Solution:**
 
