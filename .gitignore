@@ -2,3 +2,4 @@
 *.pstore
 .DS_Store
 .idea
+_book/
