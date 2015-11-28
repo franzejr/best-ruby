@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Inner assignment inside conditional | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
+        <title>Conditional assignment | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="2.2" data-chapter-title="Inner assignment inside conditional" data-filepath="idiomatic_ruby/inner_assignment_conditional.md" data-basepath=".." data-revision="Tue Nov 24 2015 01:47:55 GMT+0000 (UTC)">
+    <div class="book" data-level="2.2" data-chapter-title="Conditional assignment" data-filepath="idiomatic_ruby/conditional_assignment.md" data-basepath=".." data-revision="Sat Nov 28 2015 21:29:30 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -758,16 +758,16 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2" data-path="idiomatic_ruby/inner_assignment_conditional.html">
+        <li class="chapter active" data-level="2.2" data-path="idiomatic_ruby/conditional_assignment.html">
             
                 
-                    <a href="../idiomatic_ruby/inner_assignment_conditional.html">
+                    <a href="../idiomatic_ruby/conditional_assignment.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>2.2.</b>
                         
-                        Inner assignment inside conditional
+                        Conditional assignment
                     </a>
             
             
@@ -973,20 +973,49 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="inner-assignment-inside-conditional">Inner assignment inside conditional</h2>
+                        <h2 id="conditional-assignment">Conditional assignment</h2>
+<p>Ruby is heavily influenced by lisp. One piece of obvious inspiration in its
+design is that conditional operators return values. This makes assignment based
+on conditions quite clean and simple to read.</p>
+<p>There are quite a number of conditional operators you can use. Optimize for
+readability, maintainability, and concision.</p>
 <p><strong>Before:</strong></p>
-<pre><code class="lang-ruby"><span class="hljs-keyword">if</span> vals.any?
-  retval = do_something(vals)
+<pre><code class="lang-rb"><span class="hljs-keyword">if</span> some_bool
+  string_version = <span class="hljs-string">&apos;yes&apos;</span>
 <span class="hljs-keyword">else</span>
-  retval = do_something_different
+  string_version = <span class="hljs-string">&apos;no&apos;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
 <p><strong>After:</strong></p>
-<pre><code class="lang-ruby">retval = <span class="hljs-keyword">if</span> vals.any?
-           do_something(vals)
+<p>If you&apos;re just assigning based on a boolean, the ternary operator works best
+(this is not specific to ruby/lisp but still good and in the spirit of the
+following examples!).</p>
+<pre><code class="lang-rb">string_version = some_bool ? <span class="hljs-string">&apos;yes&apos;</span> <span class="hljs-symbol">:</span> <span class="hljs-string">&apos;no&apos;</span>
+</code></pre>
+<p>If you need to perform more complex logic based on a conditional or allow for
+&gt; 2 outcomes, <code>if</code>/<code>elsif</code>/<code>else</code> statements work well.</p>
+<pre><code class="lang-rb">retval = <span class="hljs-keyword">if</span> foo
+          <span class="hljs-string">&apos;foooooo!&apos;</span>
+         <span class="hljs-keyword">elsif</span> bar
+           <span class="hljs-string">&apos;baaaar&apos;</span>
          <span class="hljs-keyword">else</span>
-           do_something_different
+           <span class="hljs-string">&apos;dunno&apos;</span>
          <span class="hljs-keyword">end</span>
+</code></pre>
+<p>If you&apos;re assigning based on the value of a single variable, use <code>case</code>/<code>when</code>
+A good barometer is to think if you could represent the assignment in a hash.
+For example, in the following example you could look up the value of <code>opinion</code>
+in a hash that looks like <code>{&quot;ANGRY&quot; =&gt; comfort, &quot;MEH&quot; =&gt; ignore ...}</code></p>
+<pre><code class="lang-rb">action_result = <span class="hljs-keyword">case</span> opinion
+                <span class="hljs-keyword">when</span> <span class="hljs-string">&quot;ANGRY&quot;</span>
+                 comfort
+                <span class="hljs-keyword">when</span> <span class="hljs-string">&quot;MEH&quot;</span>
+                 ignore
+                <span class="hljs-keyword">when</span> <span class="hljs-string">&quot;HAPPY&quot;</span>
+                 high_five
+                <span class="hljs-keyword">else</span>
+                 ask_opinion
+                <span class="hljs-keyword">end</span>
 </code></pre>
 
                     
