@@ -26,7 +26,11 @@ You can write a Ruby code, but it can look like a Java code for example. Here yo
 
 ## [Refactorings](refactorings.md)
 
+Small (and big) improvements you can apply to your code and improve it's readability and maintenance. Change the internal structure of the code without changing it's behaviour.
+
 ## [Best Practices](best_practices.md)
+
+If you keep your house cleaned constantly you'll never need to waste a weekend cleaning it. The same applys to your code, be disciplined and keep your code looking good with those tips.
 
 ## Contributors
 
