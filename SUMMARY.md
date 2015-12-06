@@ -54,7 +54,7 @@
   * [Array Sample (enumerables)](idiomatic_ruby/array_sample.md)
   * [Use Fixnum#times](idiomatic_ruby/use_times.md)
 * [Refactorings](refactorings.md)
-  * [Refactoring switch case with Hashes](refactorings/refactoring_switch_case_with_hashses.md)
   * [Conditionals when object is nil](refactorings/conditionals_when_object_is_nil.md)
+  * [Switch case with Hashes](refactorings/case_with_hashes.md)
 * [Best Practices](best_practices.md)
   * [rescue => Exception e](best_practices/using_exception_e.md)

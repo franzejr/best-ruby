@@ -65,5 +65,4 @@ The beauty of this, to me, is that the class-selection logic is now separate fro
 
 Win, win, and win!
 
-
-From: http://weblog.jamisbuck.org/2015/11/14/little-things-refactoring-with-hashes.html
+[From](http://weblog.jamisbuck.org/2015/11/14/little-things-refactoring-with-hashes.html)
