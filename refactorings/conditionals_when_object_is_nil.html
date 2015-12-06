@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Refactoring switch case with Hashes | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
+        <title>Conditionals when object is nil | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -37,7 +37,7 @@
         
     
     
-    <link rel="next" href="../best_practices.html" />
+    <link rel="next" href="../refactorings/case_with_hashes.html" />
     
     
     <link rel="prev" href="../refactorings.html" />
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="3.1" data-chapter-title="Refactoring switch case with Hashes" data-filepath="refactorings/refactoring_switch_case_with_hashes.md" data-basepath=".." data-revision="Sat Nov 28 2015 21:29:30 GMT+0000 (UTC)">
+    <div class="book" data-level="3.1" data-chapter-title="Conditionals when object is nil" data-filepath="refactorings/conditionals_when_object_is_nil.md" data-basepath=".." data-revision="Sun Dec 06 2015 14:30:12 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -884,16 +884,31 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="3.1" data-path="refactorings/refactoring_switch_case_with_hashes.html">
+        <li class="chapter active" data-level="3.1" data-path="refactorings/conditionals_when_object_is_nil.html">
             
                 
-                    <a href="../refactorings/refactoring_switch_case_with_hashes.html">
+                    <a href="../refactorings/conditionals_when_object_is_nil.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>3.1.</b>
                         
-                        Refactoring switch case with Hashes
+                        Conditionals when object is nil
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="refactorings/case_with_hashes.html">
+            
+                
+                    <a href="../refactorings/case_with_hashes.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Switch case with Hashes
                     </a>
             
             
@@ -973,57 +988,20 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h2 id="refactoring-switch-case-with-hashes">Refactoring switch case with Hashes</h2>
-<p>The author presents a simple refactoring from case statement to hash table, as an ode to Ruby&apos;s &quot;little things&quot;.
-Ruby owes its popularity to an abundance of &#x201C;little things&#x201D;&#x2013;small touches in just the right places that make all of its features come together in delightful ways. One of those little things, for me, is the humble Hash class.</p>
-<p>Hashes are one of the most versatile data structures in Ruby. I&#x2019;ve written about them before, regarding their interchangability with Proc objects, but there&#x2019;s so much more they can do.</p>
-<p>I was recently doing a code review and encountered a pattern where user input was being used to derive a class to instantiate. It looked something like this. (Note that this is not the actual code, and is not even the same use-case. I&#x2019;ve taken some liberties here.)</p>
-<pre><code class="lang-ruby"><span class="hljs-keyword">case</span> params[<span class="hljs-symbol">:student_level</span>]
-<span class="hljs-keyword">when</span> <span class="hljs-symbol">:freshman</span>, <span class="hljs-symbol">:sophomore</span> <span class="hljs-keyword">then</span>
-  student = <span class="hljs-constant">Student::Underclassman</span>.new(name, birthdate,
-    address, phone)
-<span class="hljs-keyword">when</span> <span class="hljs-symbol">:junior</span>, <span class="hljs-symbol">:senior</span> <span class="hljs-keyword">then</span>
-  student = <span class="hljs-constant">Student::Upperclassman</span>.new(name, birthdate,
-    address, phone)
-<span class="hljs-keyword">when</span> <span class="hljs-symbol">:graduate</span>
-  student = <span class="hljs-constant">Student::Graduate</span>.new(name, birthdate,
-    address, phone)
-<span class="hljs-keyword">else</span>
-  student = <span class="hljs-constant">Student::Unregistered</span>.new(name, birthdate,
-    address, phone)
-<span class="hljs-keyword">end</span>
+                        <h2 id="conditionals-when-object-is-nil">Conditionals when object is nil</h2>
+<p><strong>Before:</strong></p>
+<pre><code class="lang-ruby">event.end_date.<span class="hljs-keyword">nil</span>? ? <span class="hljs-string">&apos;&apos;</span> <span class="hljs-symbol">:</span> event.end_date.to_s(<span class="hljs-symbol">:long</span>)
 </code></pre>
-<p>I have no doubt that many of you reading this will take one look at that code and think of half a dozen ways in which it might be refactored. (In fact, I was a bit reluctant to write this article, for fear that folks might bike-shed over the best way to refactor my example here. I did it anyway. :))</p>
-<p>Looking at the code, my first impression was that the case statement was merely selecting a different class based on the value of the user input. We could easily refactor it (for a slight improvement in clarity) like this:</p>
-<pre><code class="lang-ruby">klass = <span class="hljs-keyword">case</span> params[<span class="hljs-symbol">:student_level</span>]
-  <span class="hljs-keyword">when</span> <span class="hljs-symbol">:freshman</span>, <span class="hljs-symbol">:sophomore</span> <span class="hljs-keyword">then</span>
-    <span class="hljs-constant">Student::Underclassman</span>
-  <span class="hljs-keyword">when</span> <span class="hljs-symbol">:junior</span>, <span class="hljs-symbol">:senior</span> <span class="hljs-keyword">then</span>
-    <span class="hljs-constant">Student::Upperclassman</span>
-  <span class="hljs-keyword">when</span> <span class="hljs-symbol">:graduate</span>
-    <span class="hljs-constant">Student::Graduate</span>
-  <span class="hljs-keyword">else</span>
-    <span class="hljs-constant">Student::Unregistered</span>
-  <span class="hljs-keyword">end</span>
-student = klass.new(name, birthdate, address, phone)
+<p><strong>After:</strong></p>
+<pre><code class="lang-ruby">event.end_date.try(<span class="hljs-symbol">:to_s</span>, <span class="hljs-symbol">:long</span>)
 </code></pre>
-<p>Right? And when I see a case statement being used simply to select between different values given some input, I find myself itching to rewrite it using a hash. Because, really, what is a hash, except a mapping that selects between different values, given some input?</p>
-<p>This is the pattern I proposed in the code review:</p>
-<pre><code class="lang-ruby"><span class="hljs-constant">STUDENT_LEVELS</span> = <span class="hljs-constant">Hash</span>.new(<span class="hljs-constant">Student::Unregistered</span>).merge(
-    <span class="hljs-symbol">freshman:</span>  <span class="hljs-constant">Student::Underclassman</span>,
-    <span class="hljs-symbol">sophomore:</span> <span class="hljs-constant">Student::Underclassman</span>,
-    <span class="hljs-symbol">junior:</span>    <span class="hljs-constant">Student::Upperclassman</span>,
-    <span class="hljs-symbol">senior:</span>    <span class="hljs-constant">Student::Upperclassman</span>,
-    <span class="hljs-symbol">graduate:</span>  <span class="hljs-constant">Student::Graduate</span>
-  )
-
-klass = <span class="hljs-constant">STUDENT_LEVELS</span>[params[<span class="hljs-symbol">:student_level</span>]]
-student = klass.new(name, birthdate, address, phone)
-</code></pre>
-<p>It takes advantage of Hash.new(default_value) to ensure that Student::Unregistered is always what we get for any unrecognized input, and then Hash#merge adds in the specific mappings.</p>
-<p>The beauty of this, to me, is that the class-selection logic is now separate from the class-instantiation logic. The mapping itself can be declared outside the method, reducing clutter. That leaves us with just the two lines in the method itself: fetching the class to instantiate, and instantiating it. Easy to read, easy to test, and easy to maintain.</p>
-<p>Win, win, and win!</p>
-<p>From: <a href="http://weblog.jamisbuck.org/2015/11/14/little-things-refactoring-with-hashes.html" target="_blank">http://weblog.jamisbuck.org/2015/11/14/little-things-refactoring-with-hashes.html</a></p>
+<p>The documentation for try says:</p>
+<blockquote>
+<p>Invokes the method identified by the symbol method, passing it any arguments and/or the block specified, just like Ruby.
+Object#send. Unlike that method, nil will be returned if the receiving object is a nil object or NilClass.</p>
+</blockquote>
+<p>It&#x2019;s usually worth spending time identifying why you have to do this at all. If you can remove the scenario where the object is nil, that&#x2019;s preferable.</p>
+<p>From: <a href="https://robots.thoughtbot.com/code-review-ruby-and-rails-idioms" target="_blank">https://robots.thoughtbot.com/code-review-ruby-and-rails-idioms</a></p>
 
                     
                     </section>
@@ -1037,7 +1015,7 @@ student = klass.new(name, birthdate, address, phone)
         <a href="../refactorings.html" class="navigation navigation-prev " aria-label="Previous page: Refactorings"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../best_practices.html" class="navigation navigation-next " aria-label="Next page: Best Practices"><i class="fa fa-angle-right"></i></a>
+        <a href="../refactorings/case_with_hashes.html" class="navigation navigation-next " aria-label="Next page: Switch case with Hashes"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
