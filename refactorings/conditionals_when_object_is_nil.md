@@ -12,6 +12,8 @@ event.end_date.nil? ? '' : event.end_date.to_s(:long)
 event.end_date.try(:to_s, :long)
 ```
 
+**Remembering:** [try](http://apidock.com/rails/Object/try) is a Rails method and it's not in Ruby Core.
+
 The documentation for try says:
 
 > Invokes the method identified by the symbol method, passing it any arguments and/or the block specified, just like Ruby.
