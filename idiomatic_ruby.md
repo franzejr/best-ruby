@@ -9,4 +9,4 @@
  * [Array Sample (enumerables)](idiomatic_ruby/array_sample.md)
  * [Use Fixnum#times](idiomatic_ruby/use_times.md)
  * [Implicit Return](idiomatic_ruby/implicit_return.md)
-
+ * [Introspecting Block Parameters](idiomatic_ruby/introspecting_block_parameters.md)
