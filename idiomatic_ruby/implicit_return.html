@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Inspecting the source with script lines | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
+        <title>Implicit Return | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.6">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../tricks/iterating-over-specific-types.html" />
+    <link rel="next" href="../refactorings.html" />
     
     
-    <link rel="prev" href="../tricks/inject.html" />
+    <link rel="prev" href="../idiomatic_ruby/use_times.html" />
     
 
         
@@ -49,9 +49,9 @@
         
         
     <div class="book"
-        data-level="1.20"
-        data-chapter-title="Inspecting the source with script lines"
-        data-filepath="tricks/inspecting-the-source-with-script-lines.md"
+        data-level="2.9"
+        data-chapter-title="Implicit Return"
+        data-filepath="idiomatic_ruby/implicit_return.md"
         data-basepath=".."
         data-revision="Fri Dec 18 2015 08:35:28 GMT-0300 (BRT)"
         data-innerlanguage="">
@@ -383,7 +383,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.20" data-path="tricks/inspecting-the-source-with-script-lines.html">
+        <li class="chapter " data-level="1.20" data-path="tricks/inspecting-the-source-with-script-lines.html">
             
                 
                     <a href="../tricks/inspecting-the-source-with-script-lines.html">
@@ -869,7 +869,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.9" data-path="idiomatic_ruby/implicit_return.html">
+        <li class="chapter active" data-level="2.9" data-path="idiomatic_ruby/implicit_return.html">
             
                 
                     <a href="../idiomatic_ruby/implicit_return.html">
@@ -1009,17 +1009,64 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="inspecting-the-source-with-script-lines">Inspecting the source with script lines</h3>
-<pre><code class="lang-ruby"><span class="hljs-constant">SCRIPT_LINES__</span> = { }
+                        <h2 id="implicit-return">Implicit return</h2>
+<p>Every block in ruby will return the value of the last line automatically, so it&apos;s common to not use the <code>return</code> keyword in favor of minimal code (specially if the method fits in one line):</p>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extract_users_ids</span><span class="hljs-params">(users)</span></span>
+  user.map(&amp;<span class="hljs-symbol">:id</span>)
+<span class="hljs-keyword">end</span>
 
-<span class="hljs-comment">#require_relative = &apos;better_be_well_formed_code&apos;</span>
-require_relative = <span class="hljs-string">&apos;better_be_well_formed_code_with_a_line_size_greather_than_80_it_is_not_good&apos;</span>
+<span class="hljs-comment"># is the same as</span>
 
-<span class="hljs-keyword">if</span> <span class="hljs-constant">SCRIPT_LINES__</span>.values.flatten.any? { |line| line.size &gt; <span class="hljs-number">80</span>}
-  abort <span class="hljs-string">&apos;Clean up your code first!&apos;</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extract_users_ids</span><span class="hljs-params">(users)</span></span>
+  <span class="hljs-keyword">return</span> user.map(&amp;<span class="hljs-symbol">:id</span>)
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p><a href="source_code/inspecting_the_source_with_script_lines.rb">View Source</a></p>
+<p>Although it may cause some confusion in bigger methods, some people tend to not use the return keyword explicitly.</p>
+<p>In the following example the explicit return is misleading because even though the return is inside a map block, it is actually stopping the entire method.</p>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">odd_or_even</span><span class="hljs-params">(numbers)</span></span>
+  odd_or_even = numbers.map <span class="hljs-keyword">do</span> |number|
+    <span class="hljs-string">&quot;odd&quot;</span> <span class="hljs-keyword">if</span> number.odd?
+    <span class="hljs-string">&quot;even&quot;</span> <span class="hljs-keyword">if</span> number.even
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+odd_or_even([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>])
+<span class="hljs-comment"># returns [&quot;odd&quot;, &quot;even&quot;, &quot;even&quot;, &quot;odd&quot;]</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">odd_or_even</span><span class="hljs-params">(numbers)</span></span>
+  odd_or_even = numbers.map <span class="hljs-keyword">do</span> |number|
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;odd&quot;</span> <span class="hljs-keyword">if</span> number.odd?
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;even&quot;</span> <span class="hljs-keyword">if</span> number.even
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>
+
+odd_or_even([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>])
+<span class="hljs-comment"># returns &quot;odd&quot;</span>
+</code></pre>
+<p>Using return explicitly can also lead to errors if used inside Procs. The LocalJumpError exception is raised when Ruby can&#x2019;t yield, like in the following example:</p>
+<pre><code class="lang-ruby">yelling = <span class="hljs-constant">Proc</span>.new <span class="hljs-keyword">do</span> |message|
+  <span class="hljs-keyword">return</span> message.upcase
+<span class="hljs-keyword">end</span>
+
+calming = <span class="hljs-constant">Proc</span>.new <span class="hljs-keyword">do</span> |message|
+  message.downcase
+<span class="hljs-keyword">end</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tell</span><span class="hljs-params">(message, manner)</span></span>
+  manner.call(message)
+<span class="hljs-keyword">end</span>
+
+tell(<span class="hljs-string">&quot;hey&quot;</span>, yelling)
+<span class="hljs-comment"># will throw LocalJumpError</span>
+
+tell(<span class="hljs-string">&quot;HELLO!&quot;</span>, calming)
+<span class="hljs-comment"># will return &quot;hello!&quot;</span>
+</code></pre>
+<p>In this case it is better to let the language handle the flow of calls and not use the <code>return</code> keyword.</p>
+<p>More discussions about return in ruby:</p>
+<p><a href="http://stackoverflow.com/questions/1023146/is-it-good-style-to-explicitly-return-in-ruby" target="_blank">http://stackoverflow.com/questions/1023146/is-it-good-style-to-explicitly-return-in-ruby</a>
+<a href="http://stackoverflow.com/questions/15187287/ruby-block-statements-and-implicit-returns" target="_blank">http://stackoverflow.com/questions/15187287/ruby-block-statements-and-implicit-returns</a>
+<a href="http://stackoverflow.com/questions/8162831/ruby-lambda-vs-proc-localjumperror" target="_blank">http://stackoverflow.com/questions/8162831/ruby-lambda-vs-proc-localjumperror</a></p>
 
                     
                     </section>
@@ -1030,10 +1077,10 @@ require_relative = <span class="hljs-string">&apos;better_be_well_formed_code_wi
         </div>
 
         
-        <a href="../tricks/inject.html" class="navigation navigation-prev " aria-label="Previous page: Inject"><i class="fa fa-angle-left"></i></a>
+        <a href="../idiomatic_ruby/use_times.html" class="navigation navigation-prev " aria-label="Previous page: Use Fixnum#times"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../tricks/iterating-over-specific-types.html" class="navigation navigation-next " aria-label="Next page: Iterating over specific types"><i class="fa fa-angle-right"></i></a>
+        <a href="../refactorings.html" class="navigation navigation-next " aria-label="Next page: Refactorings"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

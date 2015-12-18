@@ -8,7 +8,7 @@
         <title>Get random data | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.6">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -48,7 +48,13 @@
     <body>
         
         
-    <div class="book" data-level="1.17" data-chapter-title="Get random data" data-filepath="tricks/get-random-data.md" data-basepath=".." data-revision="Sun Dec 06 2015 14:30:12 GMT+0000 (UTC)">
+    <div class="book"
+        data-level="1.17"
+        data-chapter-title="Get random data"
+        data-filepath="tricks/get-random-data.md"
+        data-basepath=".."
+        data-revision="Fri Dec 18 2015 08:35:28 GMT-0300 (BRT)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -863,6 +869,21 @@
             
         </li>
     
+        <li class="chapter " data-level="2.9" data-path="idiomatic_ruby/implicit_return.html">
+            
+                
+                    <a href="../idiomatic_ruby/implicit_return.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        Implicit Return
+                    </a>
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -996,12 +1017,14 @@ p <span class="hljs-constant">SecureRandom</span>.random_number(<span class="hlj
 p
 p <span class="hljs-constant">SecureRandom</span>.hex(<span class="hljs-number">20</span>)
 p <span class="hljs-constant">SecureRandom</span>.base64(<span class="hljs-number">20</span>)
+p <span class="hljs-constant">SecureRandom</span>.uuid
 
 <span class="hljs-comment"># Result:</span>
 <span class="hljs-comment"># 0.7851536586163714</span>
 <span class="hljs-comment"># 46</span>
 <span class="hljs-comment"># &quot;3efb674fbc2ba390856c15489652e75e8afff6d1&quot;</span>
 <span class="hljs-comment"># &quot;yFv0WzugzFC6/D71teVe1Y5r1kU=&quot;</span>
+<span class="hljs-comment"># &quot;64055f69-2f81-4e61-9730-495aa5c156fc&quot;</span>
 </code></pre>
 <p><a href="source_code/get_random_data.rb">View Source</a></p>
 
@@ -1047,7 +1070,7 @@ p <span class="hljs-constant">SecureRandom</span>.base64(<span class="hljs-numbe
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>
