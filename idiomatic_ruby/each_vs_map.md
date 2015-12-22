@@ -16,5 +16,5 @@ users_ids = users.map { |user| user.id }
 or even:
 
 ```ruby
-users_ids = users.map &:id
+users_ids = users.map(&:id)
 ```
