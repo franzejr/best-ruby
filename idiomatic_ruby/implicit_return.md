@@ -3,13 +3,13 @@
 Every block in ruby will return the value of the last line automatically, so it's common to not use the `return` keyword in favor of minimal code (specially if the method fits in one line):
 
 ```ruby
-def extract_users_ids(users)
+def extract_user_ids(users)
   user.map(&:id)
 end
 
 # is the same as
 
-def extract_users_ids(users)
+def extract_user_ids(users)
   return user.map(&:id)
 end
 ```
