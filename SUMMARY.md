@@ -44,6 +44,7 @@
   * [Unused variable format](tricks/unused-variable-format.md)
   * [Variables from a regex](tricks/variables-from-a-regex.md)
   * [Zip](tricks/zip.md)
+  * [Introspecting Block Parameters](tricks/introspecting_block_parameters.md)
 * [Idiomatic Ruby](idiomatic_ruby.md)
   * [Each vs map](idiomatic_ruby/each_vs_map.md)
   * [Conditional assignment](idiomatic_ruby/conditional_assignment.md)
