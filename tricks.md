@@ -44,3 +44,4 @@ The majority of these Ruby Tricks were extracted from James Edward Gray II [talk
 * [Unused variable format](tricks/unused-variable-format.md)
 * [Variables from a regex](tricks/variables-from-a-regex.md)
 * [Zip](tricks/zip.md)
+* [Introspecting Block Parameters](tricks/introspecting_block_parameters.md)
