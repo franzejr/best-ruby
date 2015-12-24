@@ -8,7 +8,7 @@
         <title>Implicit Return | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.6.6">
+        <meta name="generator" content="GitBook 2.5.2">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -48,13 +48,7 @@
     <body>
         
         
-    <div class="book"
-        data-level="2.9"
-        data-chapter-title="Implicit Return"
-        data-filepath="idiomatic_ruby/implicit_return.md"
-        data-basepath=".."
-        data-revision="Tue Dec 22 2015 15:03:55 GMT-0300 (BRT)"
-        data-innerlanguage="">
+    <div class="book" data-level="2.9" data-chapter-title="Implicit Return" data-filepath="idiomatic_ruby/implicit_return.md" data-basepath=".." data-revision="Thu Dec 24 2015 19:45:13 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -728,6 +722,21 @@
             
         </li>
     
+        <li class="chapter " data-level="1.43" data-path="tricks/introspecting_block_parameters.html">
+            
+                
+                    <a href="../tricks/introspecting_block_parameters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.43.</b>
+                        
+                        Introspecting Block Parameters
+                    </a>
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -1011,13 +1020,13 @@
                     
                         <h2 id="implicit-return">Implicit return</h2>
 <p>Every block in ruby will return the value of the last line automatically, so it&apos;s common to not use the <code>return</code> keyword in favor of minimal code (specially if the method fits in one line):</p>
-<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extract_users_ids</span><span class="hljs-params">(users)</span></span>
+<pre><code class="lang-ruby"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extract_user_ids</span><span class="hljs-params">(users)</span></span>
   user.map(&amp;<span class="hljs-symbol">:id</span>)
 <span class="hljs-keyword">end</span>
 
 <span class="hljs-comment"># is the same as</span>
 
-<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extract_users_ids</span><span class="hljs-params">(users)</span></span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">extract_user_ids</span><span class="hljs-params">(users)</span></span>
   <span class="hljs-keyword">return</span> user.map(&amp;<span class="hljs-symbol">:id</span>)
 <span class="hljs-keyword">end</span>
 </code></pre>
@@ -1110,7 +1119,7 @@ tell(<span class="hljs-string">&quot;HELLO!&quot;</span>, calming)
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>

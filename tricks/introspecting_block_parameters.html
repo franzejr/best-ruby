@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Case on ranges | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
+        <title>Introspecting Block Parameters | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.5.2">
@@ -37,10 +37,10 @@
         
     
     
-    <link rel="next" href="../tricks/count-all-objects.html" />
+    <link rel="next" href="../idiomatic_ruby.html" />
     
     
-    <link rel="prev" href="../tricks/bubbling-up-thread-errors.html" />
+    <link rel="prev" href="../tricks/zip.html" />
     
 
         
@@ -48,7 +48,7 @@
     <body>
         
         
-    <div class="book" data-level="1.7" data-chapter-title="Case on ranges" data-filepath="tricks/case-on-ranges.md" data-basepath=".." data-revision="Thu Dec 24 2015 19:45:13 GMT+0000 (UTC)">
+    <div class="book" data-level="1.43" data-chapter-title="Introspecting Block Parameters" data-filepath="tricks/introspecting_block_parameters.md" data-basepath=".." data-revision="Thu Dec 24 2015 19:45:13 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -182,7 +182,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="tricks/case-on-ranges.html">
+        <li class="chapter " data-level="1.7" data-path="tricks/case-on-ranges.html">
             
                 
                     <a href="../tricks/case-on-ranges.html">
@@ -722,7 +722,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.43" data-path="tricks/introspecting_block_parameters.html">
+        <li class="chapter active" data-level="1.43" data-path="tricks/introspecting_block_parameters.html">
             
                 
                     <a href="../tricks/introspecting_block_parameters.html">
@@ -1018,24 +1018,48 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h3 id="case-on-ranges">Case on ranges</h3>
-<pre><code class="lang-ruby">age = rand(<span class="hljs-number">1</span>..<span class="hljs-number">100</span>)
-p age
+                        <h2 id="introspecting-block-parameters">Introspecting Block Parameters</h2>
+<p>Suppose you would like to iterate over a hash, get its elements and use those
+in a block. One thing you can do is use <code>Proc#parameters</code> to help you.</p>
+<p>For example:</p>
+<pre><code class="lang-ruby">hash = {
+  <span class="hljs-symbol">first_name:</span> <span class="hljs-string">&quot;John&quot;</span>,
+  <span class="hljs-symbol">last_name:</span>  <span class="hljs-string">&quot;Smith&quot;</span>,
+  <span class="hljs-symbol">age:</span> <span class="hljs-number">35</span>,
+  <span class="hljs-comment"># ...</span>
+}
 
-<span class="hljs-keyword">case</span> age
-  <span class="hljs-keyword">when</span> -<span class="hljs-constant">Float::INFINITY</span>..<span class="hljs-number">20</span>
-    p <span class="hljs-string">&apos;You are too young&apos;</span>
-  <span class="hljs-keyword">when</span> <span class="hljs-number">21</span>..<span class="hljs-number">64</span>
-    p <span class="hljs-string">&apos;You are at the right age&apos;</span>
-  <span class="hljs-keyword">when</span> <span class="hljs-number">65</span>..<span class="hljs-constant">Float::INFINITY</span>
-    p <span class="hljs-string">&apos;You are too old&apos;</span>
+hash.using <span class="hljs-keyword">do</span> |first_name, last_name|
+  puts <span class="hljs-string">&quot;Hello, <span class="hljs-subst">#{first_name}</span> <span class="hljs-subst">#{last_name}</span>.&quot;</span>
 <span class="hljs-keyword">end</span>
 
-<span class="hljs-comment"># Result:</span>
-<span class="hljs-comment"># 55</span>
-<span class="hljs-comment"># &quot;You are at the right age&quot;</span>
+<span class="hljs-comment"># or even...</span>
+
+circle = {
+  <span class="hljs-symbol">radius:</span> <span class="hljs-number">5</span>,
+  <span class="hljs-symbol">color:</span> <span class="hljs-string">&quot;blue&quot;</span>,
+  <span class="hljs-comment"># ...</span>
+}
+
+area = circle.using { |radius| <span class="hljs-constant">Math::PI</span> * radius**<span class="hljs-number">2</span> }
 </code></pre>
-<p><a href="source_code/case_on_ranges.rb">View Source</a></p>
+<p>You can check how the implementation is really simple:</p>
+<pre><code class="lang-ruby"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Hash</span></span>
+  <span class="hljs-class"><span class="hljs-keyword">module</span> <span class="hljs-title">Using</span></span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">using</span><span class="hljs-params">(&amp;block)</span></span>
+      values = block.parameters.map <span class="hljs-keyword">do</span> |(type, name)|
+        <span class="hljs-keyword">self</span>[name]
+      <span class="hljs-keyword">end</span>
+
+      block.call(*values)
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">include</span> <span class="hljs-constant">Using</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>From:</p>
+<p><a href="http://weblog.jamisbuck.org/2015/12/12/little-things-proc-parameters.html" target="_blank">http://weblog.jamisbuck.org/2015/12/12/little-things-proc-parameters.html</a></p>
 
                     
                     </section>
@@ -1046,10 +1070,10 @@ p age
         </div>
 
         
-        <a href="../tricks/bubbling-up-thread-errors.html" class="navigation navigation-prev " aria-label="Previous page: Bubbling up thread errors"><i class="fa fa-angle-left"></i></a>
+        <a href="../tricks/zip.html" class="navigation navigation-prev " aria-label="Previous page: Zip"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../tricks/count-all-objects.html" class="navigation navigation-next " aria-label="Next page: Count all objects"><i class="fa fa-angle-right"></i></a>
+        <a href="../idiomatic_ruby.html" class="navigation navigation-next " aria-label="Next page: Idiomatic Ruby"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
