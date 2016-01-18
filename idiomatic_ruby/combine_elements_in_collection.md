@@ -30,7 +30,7 @@ An operation such as:
 ```ruby
 hash = {}
 values.each do |value|
-  hash.merge(value => value ** 2)
+  hash.merge!(value => value ** 2)
 end
 hash
 # => { 1 => 1, 2 => 4, 3 => 9, 4 => 16 }
@@ -39,6 +39,7 @@ hash
 Can be simplified with `inject` method:
 
 ```ruby
+hash = {}
 values.inject({}) do |hash, value|
   hash.merge(value => value ** 2)
 end
