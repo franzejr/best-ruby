@@ -39,8 +39,9 @@ A big thanks to the following [persons](https://github.com/franzejr/best-ruby/gr
 ## Contributing
 
 1. [Fork it](https://github.com/franzejr/best-ruby)
-2. Create your refactoring technique branch: `git checkout -b my-technique`
-3. Add your technique to the collection of `.md` files in the correct folder (tricks, refactorings, idiomatic_ruby or best_practices) folder
-4. Commit your changes: `git commit -am 'Add my technique'`
-5. Push to the branch: `git push origin mytechnique`
-6. Create a new Pull Request and explain your technique in the markdown file
+2. Create a branch with your idea: `git checkout -b my-idea`
+3. Check in which category it should be: best practice, idiomatic ruby, refactorying or trick. If you don't know, please open an issue and ask.
+4. Add your idea to the collection of `.md` files in the correct folder (tricks, refactorings, idiomatic_ruby or best_practices) folder
+5. Commit your changes: `git commit -am 'Add my idea'`
+6. Push to the branch: `git push origin my-idea`
+7. Create a new Pull Request and explain your technique in the markdown file
