@@ -8,7 +8,7 @@
         <title>Introduction | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="Do you know why experienced Ruby programmers tend to reach for basic collectionsand hashes while programmers from other languages go for more specialized classes?Do you know the difference between strip, chop, and chomp, and why there are threesuch similar methods when apparently one might suffice? (Not to mention lstrip andrstrip!) Do you know the downsides of dynamic typing? Do you know why the differencesbetween strings and symbols get so blurry, even to experienced Ruby developers?How about metaprogramming? What the heck is an eigenclass? How aboutprotected methods? Do you know what they’re really about? Really? Are you sure?Eloquent Ruby">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.6">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -46,7 +46,13 @@
     <body>
         
         
-    <div class="book" data-level="0" data-chapter-title="Introduction" data-filepath="README.md" data-basepath="." data-revision="Thu Dec 24 2015 19:45:13 GMT+0000 (UTC)">
+    <div class="book"
+        data-level="0"
+        data-chapter-title="Introduction"
+        data-filepath="README.md"
+        data-basepath="."
+        data-revision="Fri Jan 29 2016 10:55:04 GMT-0300 (BRT)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -1044,10 +1050,11 @@ protected methods? Do you know what they&#x2019;re really about? Really? Are you
 <h2 id="contributing">Contributing</h2>
 <ol>
 <li><a href="https://github.com/franzejr/best-ruby" target="_blank">Fork it</a></li>
-<li>Create your refactoring technique branch: <code>git checkout -b my-technique</code></li>
-<li>Add your technique to the collection of <code>.md</code> files in the correct folder (tricks, refactorings, idiomatic_ruby or best_practices) folder</li>
-<li>Commit your changes: <code>git commit -am &apos;Add my technique&apos;</code></li>
-<li>Push to the branch: <code>git push origin mytechnique</code></li>
+<li>Create a branch with your idea: <code>git checkout -b my-idea</code></li>
+<li>Check in which category it should be: best practice, idiomatic ruby, refactorying or trick. If you don&apos;t know, please open an issue and ask.</li>
+<li>Add your idea to the collection of <code>.md</code> files in the correct folder (tricks, refactorings, idiomatic_ruby or best_practices) folder</li>
+<li>Commit your changes: <code>git commit -am &apos;Add my idea&apos;</code></li>
+<li>Push to the branch: <code>git push origin my-idea</code></li>
 <li>Create a new Pull Request and explain your technique in the markdown file</li>
 </ol>
 
@@ -1091,7 +1098,7 @@ protected methods? Do you know what they&#x2019;re really about? Really? Are you
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>

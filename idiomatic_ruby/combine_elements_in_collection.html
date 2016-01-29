@@ -8,7 +8,7 @@
         <title>Combine operation over collections (enumerables) | Ruby Tricks, Idiomatic Ruby, Refactorings and Best Practices</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 2.5.2">
+        <meta name="generator" content="GitBook 2.6.6">
         
         
         <meta name="HandheldFriendly" content="true"/>
@@ -48,7 +48,13 @@
     <body>
         
         
-    <div class="book" data-level="2.3" data-chapter-title="Combine operation over collections (enumerables)" data-filepath="idiomatic_ruby/combine_elements_in_collection.md" data-basepath=".." data-revision="Thu Dec 24 2015 19:45:13 GMT+0000 (UTC)">
+    <div class="book"
+        data-level="2.3"
+        data-chapter-title="Combine operation over collections (enumerables)"
+        data-filepath="idiomatic_ruby/combine_elements_in_collection.md"
+        data-basepath=".."
+        data-revision="Fri Jan 29 2016 10:55:04 GMT-0300 (BRT)"
+        data-innerlanguage="">
     
 
 <div class="book-summary">
@@ -1037,13 +1043,14 @@ product
 <p>An operation such as:</p>
 <pre><code class="lang-ruby">hash = {}
 values.each <span class="hljs-keyword">do</span> |value|
-  hash.merge(value =&gt; value ** <span class="hljs-number">2</span>)
+  hash.merge!(value =&gt; value ** <span class="hljs-number">2</span>)
 <span class="hljs-keyword">end</span>
 hash
 <span class="hljs-comment"># =&gt; { 1 =&gt; 1, 2 =&gt; 4, 3 =&gt; 9, 4 =&gt; 16 }</span>
 </code></pre>
 <p>Can be simplified with <code>inject</code> method:</p>
-<pre><code class="lang-ruby">values.inject({}) <span class="hljs-keyword">do</span> |hash, value|
+<pre><code class="lang-ruby">hash = {}
+values.inject({}) <span class="hljs-keyword">do</span> |hash, value|
   hash.merge(value =&gt; value ** <span class="hljs-number">2</span>)
 <span class="hljs-keyword">end</span>
 <span class="hljs-comment"># =&gt; { 1 =&gt; 1, 2 =&gt; 4, 3 =&gt; 9, 4 =&gt; 16 }</span>
@@ -1091,7 +1098,7 @@ hash
 
 <script>
 require(["gitbook"], function(gitbook) {
-    var config = {"highlight":{},"search":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
+    var config = {"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"livereload":{}};
     gitbook.start(config);
 });
 </script>
