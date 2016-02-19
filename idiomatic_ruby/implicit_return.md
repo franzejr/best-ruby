@@ -22,7 +22,7 @@ In the following example the explicit return is misleading because even though t
 def odd_or_even(numbers)
   odd_or_even = numbers.map do |number|
     "odd" if number.odd?
-    "even" if number.even
+    "even" if number.even?
   end
 end
 
@@ -32,7 +32,7 @@ odd_or_even([1,2,4,3])
 def odd_or_even(numbers)
   odd_or_even = numbers.map do |number|
     return "odd" if number.odd?
-    return "even" if number.even
+    return "even" if number.even?
   end
 end
 
