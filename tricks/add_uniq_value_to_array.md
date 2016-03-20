@@ -1,4 +1,4 @@
-### How add uniq value to array
+### How to add uniq value to array
 
 ```ruby
 array = [1, 2, 3]
