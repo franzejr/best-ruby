@@ -45,3 +45,4 @@ The majority of these Ruby Tricks were extracted from James Edward Gray II [talk
 * [Variables from a regex](tricks/variables-from-a-regex.md)
 * [Zip](tricks/zip.md)
 * [Introspecting Block Parameters](tricks/introspecting_block_parameters.md)
+* [How to add uniq value to array](tricks/add_uniq_value_to_array.md)
