@@ -5,6 +5,8 @@
 arguments = [1, 2, 3, 4]
 my_method(*arguments) # any number of arguments
 
+
+
 # or:
 
 arguments = [2, 3, 4]
@@ -14,6 +16,7 @@ my_method(1, *arguments) # any number of trailing arguments
 
 arguments = [1, 2]
 my_method(*arguments, 3, 4) # any number of preceding arguments
+
 
 # or:
 

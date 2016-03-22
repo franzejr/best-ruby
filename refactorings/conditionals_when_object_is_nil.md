@@ -12,6 +12,13 @@ event.end_date.nil? ? '' : event.end_date.to_s(:long)
 event.end_date.try(:to_s, :long)
 ```
 
+**Or (2.3+):**
+
+```ruby
+event.end_date&.to_s&.long
+```
+[About &. operator](http://mitrev.net/ruby/2015/11/13/the-operator-in-ruby/)
+
 **Remembering:** [try](http://apidock.com/rails/Object/try) is a Rails method and it's not in Ruby Core.
 
 The documentation for try says:
