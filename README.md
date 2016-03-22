@@ -2,9 +2,9 @@
 
 > Do you know why experienced Ruby programmers tend to reach for basic collections
 > and hashes while programmers from other languages go for more specialized classes?
-> Do you know the difference between strip, chop, and chomp, and why there are three
-> such similar methods when apparently one might suffice? (Not to mention lstrip and
-> rstrip!) Do you know the downsides of dynamic typing? Do you know why the differences
+> Do you know the difference between strip, chop, and chomp; and why there are three
+> such similar methods when apparently one might suffice (Not to mention lstrip and
+> rstrip!)? Do you know the downsides of dynamic typing? Do you know why the differences
 > between strings and symbols get so blurry, even to experienced Ruby developers?
 > How about metaprogramming? What the heck is an eigenclass? How about
 > protected methods? Do you know what they’re really about? Really? Are you sure?
@@ -12,17 +12,17 @@
 
 > Absolutely the best way to learn to write idiomatic Ruby code is to read idiomatic Ruby code. [Eloquent Ruby](http://www.amazon.com/Eloquent-Ruby-Addison-Wesley-Professional/dp/0321584104)
 
-This repository aims to help everyone to write a more idiomatic, clean and tricky ruby code and also try to join a bunch of good refactoring techniques. You can add your own technique or paste it from some website(do not forget the source, of course). All the tricks are in the /tricks folder.
+This repository aims to help everyone write more idiomatic, clean, and tricky ruby code and also document good refactoring techniques. You can add your own technique or paste it from some website. Do not forget the source, of course. All the tricks are in the /tricks folder.
 
-For the sake of reading, you should paste in the markdown format and at the end, paste where the technique come from, if it's not yours.
+For the sake of clarity, you should paste in the markdown format. At the end, if the code is not your own, paste a reference to the author and source of the technique.
 
 ## [Tricks](tricks.md)
 
-In this part we can check some obscure or awesome features from the and the standard ruby library which normally we forget.
+In this part we can review some obscure or awesome features from the and the standard ruby library which we normally forget.
 
 ## [Idiomatic Ruby](idiomatic_ruby.md)
 
-You can write a Ruby code, but it can look like a Java code for example. Here you can find some tips to write a more natural and take advantage of Ruby.
+You can write Ruby code, but it can sometimes look like Java code. Here you can find some tips to write more naturally and take advantage of idiomatic Ruby.
 
 ## [Refactorings](refactorings.md)
 
@@ -30,7 +30,7 @@ Small (and big) improvements you can apply to your code and improve it's readabi
 
 ## [Best Practices](best_practices.md)
 
-If you keep your house cleaned constantly you'll never need to waste a weekend cleaning it. The same applys to your code, be disciplined and keep your code looking good with those tips.
+If you keep your house cleaned constantly you'll never need to waste a weekend cleaning it. The same applies to your code. Be disciplined and keep your code looking good with those tips.
 
 ## Contributors
 
