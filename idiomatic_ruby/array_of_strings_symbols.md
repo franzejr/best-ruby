@@ -3,13 +3,13 @@
 **Array of Strings**
 
 ```ruby
-%w[Michael Jonh Mary Stuart]
+%w(Michael Jonh Mary Stuart)
 => ["Michael", "Jonh", "Mary", "Stuart"]
 ```
 
 **Array of Symbols**
 
 ```ruby
-%i[Michael Jonh Mary Stuart]
+%i(Michael Jonh Mary Stuart)
 => [:Michael, :Jonh, :Mary, :Stuart]
 ```
