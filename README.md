@@ -34,7 +34,7 @@ If you keep your house cleaned constantly you'll never need to waste a weekend c
 
 ## Contributors
 
-A big thanks to the following [persons](https://github.com/franzejr/best-ruby/graphs/contributors)
+A big thanks to the following [people](https://github.com/franzejr/best-ruby/graphs/contributors)
 
 ## Contributing
 
