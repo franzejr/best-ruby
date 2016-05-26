@@ -45,3 +45,12 @@ values.inject({}) do |hash, value|
 end
 # => { 1 => 1, 2 => 4, 3 => 9, 4 => 16 }
 ```
+
+Or with the `each_with_object` method:
+
+```ruby
+values.each_with_object({}) do |value, hash|
+  hash[value] = value ** 2
+end
+# => { 1 => 1, 2 => 4, 3 => 9, 4 => 16 }
+```
