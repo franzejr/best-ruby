@@ -3,13 +3,13 @@
 **Rather than**
 ```ruby
 for i in 1..10
-  puts 'My iteration'
+  puts "My iteration #{i}"
 end
 ```
 
 **Use**
 ```ruby
-5.times do
-  puts 'My iteration'
+10.times do |i|
+  puts "My iteration #{i + 1}"
 end
 ```
