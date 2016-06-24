@@ -4,13 +4,13 @@ Every block in ruby will return the value of the last line automatically, so it'
 
 ```ruby
 def extract_user_ids(users)
-  user.map(&:id)
+  users.map(&:id)
 end
 
 # is the same as
 
 def extract_user_ids(users)
-  return user.map(&:id)
+  return users.map(&:id)
 end
 ```
 
