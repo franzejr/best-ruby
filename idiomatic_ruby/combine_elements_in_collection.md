@@ -39,7 +39,6 @@ hash
 Can be simplified with `inject` method:
 
 ```ruby
-hash = {}
 values.inject({}) do |hash, value|
   hash.merge(value => value ** 2)
 end
