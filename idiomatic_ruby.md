@@ -9,3 +9,4 @@
  * [Array Sample (enumerables)](idiomatic_ruby/array_sample.md)
  * [Use Fixnum#times](idiomatic_ruby/use_times.md)
  * [Implicit Return](idiomatic_ruby/implicit_return.md)
+ * [Collect vs Select](idiomatic_ruby/collect_vs_select.md)
