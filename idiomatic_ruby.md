@@ -9,3 +9,4 @@
  * [Array Sample (enumerables)](idiomatic_ruby/array_sample.md)
  * [Use Fixnum#times](idiomatic_ruby/use_times.md)
  * [Implicit Return](idiomatic_ruby/implicit_return.md)
+ * [Options Hash with defaults](idiomatic_ruby/options_hash_with_defaults.md)
