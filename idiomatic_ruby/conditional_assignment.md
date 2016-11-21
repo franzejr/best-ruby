@@ -17,7 +17,7 @@ end
 
 **After:**
 
-If you're just assigning based on a boolean, the ternary operator works best
+If you're just assigning based on a boolean, the `ternary` operator works best
 (this is not specific to ruby/lisp but still good and in the spirit of the
 following examples!).
 ```rb
