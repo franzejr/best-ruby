@@ -17,7 +17,7 @@ end
 
 **After:**
 
-If you're just assigning based on a boolean, the ternary operator works best
+If you're just assigning based on a boolean, the `ternary` operator works best
 (this is not specific to ruby/lisp but still good and in the spirit of the
 following examples!).
 ```rb
@@ -39,16 +39,16 @@ retval = if foo
 If you're assigning based on the value of a single variable, use `case`/`when`
 A good barometer is to think if you could represent the assignment in a hash.
 For example, in the following example you could look up the value of `opinion`
-in a hash that looks like `{"ANGRY" => comfort, "MEH" => ignore ...}`
+in a hash that looks like `{"ANGRY"=>:comfort, "MEH"=>:ignore, "HAPPY"=>:high_five, "DUNNO"=>:ask_opinion}`
 ```rb
 action_result = case opinion
                 when "ANGRY"
-                 comfort
+                 :comfort
                 when "MEH"
-                 ignore
+                 :ignore
                 when "HAPPY"
-                 high_five
+                 :high_five
                 else
-                 ask_opinion
+                 :ask_opinion
                 end
 ```
