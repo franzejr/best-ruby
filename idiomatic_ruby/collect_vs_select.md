@@ -14,6 +14,6 @@ select : Elements can be selected from an array according to criteria defined in
 ```ruby
 arr = (1..10).to_a
 # => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-arr.select{ |num| num.even? }
+arr.select(&:even?)
 # => [2, 4, 6, 8, 10]
 ```
