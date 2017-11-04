@@ -22,6 +22,7 @@ The majority of these Ruby Tricks were extracted from James Edward Gray II [talk
 * [Head tail](tricks/head-tail.md)
 * [Inject](tricks/inject.md)
 * [Inspecting the source with script lines](tricks/inspecting-the-source-with-script-lines.md)
+* [Integer#digits](tricks/digits.md)
 * [Iterating over specific types](tricks/iterating-over-specific-types.md)
 * [Lambda your own syntax](tricks/lambda-your-own-syntax.md)
 * [Memoization](tricks/memoization.md)
