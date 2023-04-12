@@ -25,7 +25,7 @@ string_version = some_bool ? 'yes' : 'no'
 ```
 
 If you need to perform more complex logic based on a conditional or allow for
-\> 2 outcomes, `if`/`elsif`/`else` statements work well.
+\> 2 outcomes, `if`/`elsif`/`else` expressions work well.
 ```rb
 retval = if foo
           'foooooo!'
